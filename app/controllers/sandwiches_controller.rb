@@ -19,15 +19,18 @@ class SandwichesController < ApplicationController
 
   def create
     @sandwich = current_user.sandwiches.build(:name => params[:name])
-    @songs.each do |file|
-      @sandwich.posts << current_user.posts.build(:mp3 => file[:filedata], :title => file[:title], :artist => file[:artist], :album => file[:album])
+    if @songs
+      @songs.each do |file|
+        @sandwich.posts << current_user.posts.build(:mp3 => file[:filedata], :title => file[:title], :artist => file[:artist], :album => file[:album])
+      end
     end
-    @sandwich.save!
-    # render :partial => 'sandwiches/sandwich.html.erb', :locals => {:sandwich => @sandwich}
-    redirect_to root_path
+    if @sandwich.save
+      redirect_to root_path
+    else
+      render :action => "new"
+    end    
   rescue => e
     Toadhopper(CONFIG['HOPTOAD_API_KEY']).post!(e) if CONFIG['HOPTOAD_API_KEY']
-    render :partial => 'posts/error.html.erb', :locals => {:filename => @filename}
   end
 
   def show

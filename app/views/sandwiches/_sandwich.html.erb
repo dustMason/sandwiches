@@ -1,4 +1,5 @@
 <h3><%= sandwich.name %></h3>
+<h4>by <%= sandwich.user %>, <%= time_ago_in_words sandwich.created_at %> ago</h4>
 <ul class="playlist">
   <% sandwich.posts.each do |post| %>
     <li>

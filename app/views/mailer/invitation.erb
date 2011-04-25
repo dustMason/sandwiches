@@ -1,3 +1,16 @@
-You have been invited to <%= CONFIG['app_name'] %> by <%= @invitation.user %>:
+<p><strong>Hello</strong>,</p>
+  
+<p>I was thinking the other day that I would love to get together with some friends and have a good old-fashioned music swap. The problem with music swaps, though, is that they're often overwhelming. I always end up with a boatload of music and sometimes never even get around to listening to all of it.</p>
+  
+<p>Since I'm a big nerd I decided to make a website for us to use to share music. Its called <strong>Sandwiches</strong> and has one basic premise: you must share songs in sets of 3. Pick three songs that go together and upload them. Thats pretty much it. You can play the songs right on the site or download them directly.</p>
 
-  <%= new_user_url(:invitation => @invitation.code) %>
+<p>Right now the site is <strong>invite only</strong>. If you would like to invite a trusted friend, let me know and I will add them.</p>
+
+<p>Please sign up with this link: <%= link_to new_user_url(:invitation => @invitation.code) %>. Once you're signed up you can listen to other peoples' sandwiches by clicking songs and create your own with the New Sandwich link. It will work best on the newest version of any browser (including apple iStuff!)</p>
+
+<p>Let me know what you think!</p>
+
+<p>All the best,</p>
+<p><strong>Jordan</strong></p>
+
+<p>PS This is unrelated to the StartUp Chile project!</p>

@@ -3,11 +3,12 @@
   <h2>New Sandwich</h2>
 
   <%= form_tag sandwiches_path, :id => 'new_sandwich', :multipart => true do %>
-    <p><%= text_field_tag :name %></p>
-    <p><%= file_field_tag "songs[1]" %></p>
-    <p><%= file_field_tag "songs[2]" %></p>
-    <p><%= file_field_tag "songs[3]" %></p>
-    <p><%= submit_tag "upload", :id => "new_sandwich_submit" %></p>
+    <%= error_messages_for :sandwich %>
+    <p><%= label_tag "Name" %> <%= text_field_tag :name %></p>
+    <p><%= label_tag "First" %> <%= file_field_tag "songs[1]" %></p>
+    <p><%= label_tag "Second" %> <%= file_field_tag "songs[2]" %></p>
+    <p><%= label_tag "Third" %> <%= file_field_tag "songs[3]" %></p>
+    <p><%= submit_tag "Upload", :id => "new_sandwich_submit" %></p>
     <div id="new_sandwich_status"></div>
   <% end %>
 
