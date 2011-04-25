@@ -1,52 +1,57 @@
-== About
+About
+============
 
-This fork of KZAK makes sandwiches.
+**This fork of KZAK makes sandwiches.**
 
 KZAK is a web-based jukebox.
 http://github.com/trevorturk/kzak/
 
 
-== Installation
+Installation
+=================
 
-  git clone git://github.com/trevorturk/kzak.git
-  gem install bundler
-  bundle install
-  cp config/database.example.yml config/database.yml
-  cp config/config.example.yml config/config.yml
-  rake db:create
-  rake db:schema:load
-  rake db:seed
-  script/server
-  # http://localhost:3000/
-
-
-== Deployment
-
-  gem install heroku
-  heroku create
-  # Set the variables for your production environment in config/config.yml
-  # Create the bucked you'd like to use on S3
-  rake heroku:config
-  git push heroku master
-  heroku rake db:schema:load
-  heroku rake db:seed
-  heroku open
-  # Read more about Heroku here: http://heroku.com/
+    git clone git://github.com/trevorturk/kzak.git
+    gem install bundler
+    bundle install
+    cp config/database.example.yml config/database.yml
+    cp config/config.example.yml config/config.yml
+    rake db:create
+    rake db:schema:load
+    rake db:seed
+    script/server
+    # http://localhost:3000/
 
 
-== Upgrading
+Deployment
+====================
 
-  heroku db:pull sqlite://db/backup.sqlite3
-  git pull
-  bundle install
-  # Review possible config changes in config/config.example.yml
-  rake heroku:config
-  git push heroku master
-  heroku rake db:migrate
-  heroku open
+    gem install heroku
+    heroku create
+    # Set the variables for your production environment in config/config.yml
+    # Create the bucked you'd like to use on S3
+    rake heroku:config
+    git push heroku master
+    heroku rake db:schema:load
+    heroku rake db:seed
+    heroku open
+    # Read more about Heroku here: http://heroku.com/
 
 
-== MIT License
+Upgrading
+===================
+
+    heroku db:pull sqlite://db/backup.sqlite3
+    git pull
+    bundle install
+    # Review possible config changes in config/config.example.yml
+    rake heroku:config
+    git push heroku master
+    heroku rake db:migrate
+    heroku open
+
+
+MIT License
+========================
 
 Copyright (c) 2009... Trevor Turk
 
