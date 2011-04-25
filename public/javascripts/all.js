@@ -1356,7 +1356,8 @@ var PP_CONFIG = {
   useWaveformData: false,// [Flash 9 only] show raw waveform data - WARNING: LIKELY VERY CPU-HEAVY
   useEQData: false,      // [Flash 9 only] show EQ (frequency spectrum) data
   useFavIcon: false,     
-  useMovieStar: true     // Flash 9.0r115+ only: Support for a subset of MPEG4 formats.
+  useMovieStar: true,     // Flash 9.0r115+ only: Support for a subset of MPEG4 formats.
+  updatePageTitle: false
 }
 
 $(document).ready(function(){
