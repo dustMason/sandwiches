@@ -22,8 +22,6 @@ class UsersController < ApplicationController
     @user.inviter = @invitation.user
     if @user.save
       @invitation.redeem_for(@user)
-      # @user.follow_all_users
-      # @user.get_followed_by_all_users
       sign_in @user
       redirect_to root_path
     else
