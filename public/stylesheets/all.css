@@ -85,7 +85,8 @@ p { margin: 1em 0; }
 .playable {}
 .playing {background:#eeeeec;}
 .paused {background:#eeeeec;}
-.shuffle {float:right; font-weight:normal; color:#dedede;}
+/*.shuffle {float:right; font-weight:normal; color:#dedede;}*/
+.new-sandwich {float:right; font-weight:normal; }
 #flash div {text-align:center; padding:5px 0; margin-bottom:15px;}
 .pad_top {margin-top:20px;}
 .disabled, .pending {color:#999;}
@@ -95,3 +96,16 @@ p { margin: 1em 0; }
 .invitation_submit {margin-top:-1em;}
 .error {color:#8a1f11;font-weight:bold;}
 .success {color:#264409;}
+
+.sandwich {
+	padding: 0 0 10px 0;
+}
+	.sandwich ul {}
+	.sandwich h3 {}
+	.sandwich li {
+		background: #D9D9D9;
+		padding: 3px;
+		margin-bottom: 3px;
+	}
+	.sandwich li p { padding: 0; margin: 0; }
+	.sandwich li a {}
