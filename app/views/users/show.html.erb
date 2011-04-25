@@ -1,13 +1,20 @@
 <div class="grid_10">
 
-  <h2><%=h @user %> <a href="#shuffle" class="shuffle">shuffle</a></h2>
-
-  <% if @user.posts.present? %>
-    <ul class="playlist">
-      <% @user.posts.each do |post| %>
-        <li><%= render post %></li>
+  <h2><%=h @user %></h2>
+  
+  <% if @user.sandwiches.present? %>
+    <div id="swfupload-playlist">
+      <% @user.sandwiches.each_with_index do |sandwich,i| %>
+        <% klass = (i % 3 == 0 || i == 0) ? "alpha" : (i % 3 == 2) ? "omega" : "" %>
+        <div class="sandwich grid_3 <%= klass %>">
+          <%= render sandwich %>
+        </div>
+        <% if klass == 'omega' %>
+          <div class="clear"></div>
+        <% end %>
       <% end %>
-    </ul>
+      <div class="clear"></div>
+    </div>
   <% end %>
 
 </div>

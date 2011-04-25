@@ -23,10 +23,11 @@ class SandwichesController < ApplicationController
       @sandwich.posts << current_user.posts.build(:mp3 => file[:filedata], :title => file[:title], :artist => file[:artist], :album => file[:album])
     end
     @sandwich.save!
-    render :partial => 'sandwiches/sandwich.html.erb', :locals => {:sandwich => @sandwich}
-  # rescue => e
-  #   Toadhopper(CONFIG['HOPTOAD_API_KEY']).post!(e) if CONFIG['HOPTOAD_API_KEY']
-  #   render :partial => 'posts/error.html.erb', :locals => {:filename => @filename}
+    # render :partial => 'sandwiches/sandwich.html.erb', :locals => {:sandwich => @sandwich}
+    redirect_to root_path
+  rescue => e
+    Toadhopper(CONFIG['HOPTOAD_API_KEY']).post!(e) if CONFIG['HOPTOAD_API_KEY']
+    render :partial => 'posts/error.html.erb', :locals => {:filename => @filename}
   end
 
   def show
