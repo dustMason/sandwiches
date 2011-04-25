@@ -3,8 +3,7 @@ class Mailer < ActionMailer::Base
 
   def invitation(invitation)
     @invitation = invitation
-    mail(:to => invitation.email,
-         :subject => "#{CONFIG['app_name']} invitation from #{invitation.user}")
+    mail(:to => invitation.email, :subject => "Sandwiches")
   end
 
 end

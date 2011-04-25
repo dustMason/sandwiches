@@ -2,10 +2,8 @@ class SandwichesController < ApplicationController
   
   skip_before_filter :verify_authenticity_token, :only => :create
   before_filter :get_audio_info, :only => :create
-  
-  # TODO: add validation to ensure no less or no more than 3 songs per sandwich
-  
-  def index
+    
+  def index    
     @sandwiches = Sandwich.all
     @users = User.all
     respond_to do |format|

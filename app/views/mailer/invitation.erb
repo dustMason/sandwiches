@@ -6,7 +6,7 @@
 
 <p>Right now the site is <strong>invite only</strong>. If you would like to invite a trusted friend, let me know and I will add them.</p>
 
-<p>Please sign up with this link: <%= link_to new_user_url(:invitation => @invitation.code) %>. Once you're signed up you can listen to other peoples' sandwiches by clicking songs and create your own with the New Sandwich link. It'll work best on the newest version of any browser (including apple iStuff!)</p>
+<p>Please sign up with this link: <%= link_to "#{new_user_url(:invitation => @invitation.code)}", new_user_url(:invitation => @invitation.code) %>. Once you're signed up you can listen to other peoples' sandwiches by clicking songs and create your own with the New Sandwich link. It'll work best on the newest version of any browser (including apple iStuff!)</p>
 
 <p>Let me know what you think!</p>
 
@@ -15,4 +15,4 @@
 
 <p>PS This is unrelated to the StartUp Chile project!</p>
 
-<p>PPS For my fellow nerds: its all open source! I'd be honored to have any of you contribute. <%= link_to 'https://github.com/dustMason/sandwiches' %></p>
+<p>PPS For my fellow nerds: its all open source! I'd be honored to have any of you contribute. <%= link_to 'https://github.com/dustMason/sandwiches', 'https://github.com/dustMason/sandwiches' %></p>
