@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>KZAK!</title>
+  <title>Sandwiches</title>
   <%= javascript_include_tag 'jquery', 'rails', 'jquery.form', 'jquery.hint', 'jquery.shuffle', 'soundmanager2', 'swfupload', 'application', :cache => true %>
   <%= stylesheet_link_tag 'reset', '960', 'forms', 'application', :cache => true %>
   <%= auto_discovery_link_tag :rss, rss_url, { :title => 'RSS' } if user_signed_in? %>
@@ -10,7 +10,7 @@
 <body>
   <div class="container_12">
   	<div class="grid_6">
-      <h1><%= link_to 'KZAK!', root_path %></h1>
+      <h1><%= link_to 'Sandwiches', root_path %></h1>
   	</div>
   	<div class="grid_6">
       <%= render 'shared/nav' %>
@@ -24,7 +24,6 @@
     <%= yield %>
     <div class="clear"></div>
     <div id="footer" class="grid_12">
-      <%= image_tag 'bplayer2.gif' %>
     </div>
   </div>
   <%= yield :footer %>
