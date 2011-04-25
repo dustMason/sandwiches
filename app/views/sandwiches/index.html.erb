@@ -7,40 +7,25 @@
     <% end %>
   </h2>
 
-
-
-  <div id="swfupload-playlist">
-    <% @feed_items.each_with_index do |feed_item,i| %>
-      <% klass = (i % 3 == 0 || i == 0) ? "alpha" : (i % 3 == 2) ? "omega" : "" %>
-      <div class="sandwich grid_3 <%= klass %>">
-        <%= render feed_item.sandwich %>
-      </div>
-      <% if klass == 'omega' %>
-        <div class="clear"></div>
-      <% end %>
-    <% end if @feed_items %>
-    <div class="clear"></div>
-  </div>
+   <%= render :partial => 'sandwiches/sandwiches', :locals => {:sandwiches => @sandwiches} %>
 
 </div>
 
 <div id="users" class="grid_3">
 
-  <h2>following</h2>
+  <h2>People</h2>
 
   <ul class="users">
-    <% # TODO followings/followers ordering not working, so using sort_by here %>
-    <% @followings.sort_by{|u| u.login.downcase}.each do |user| %>
+    
+    <% @users.sort_by{|u| u.login.downcase}.each do |user| %>
       <li><%= render user %></li>
-    <% end if @followings %>
+    <% end if @users %>
+    
   </ul>
 
-  <h2 class="pad_top">invite a new user</h2>
-
-  <%= render 'invitations/form' %>
+  <% if current_user.admin %>
+    <h2 class="pad_top">invite a new user</h2>
+    <%= render 'invitations/form' %>
+  <% end %>
 
 </div>
-
-<% content_for :footer do %>
-  <%#= render 'uploader' %>
-<% end %>

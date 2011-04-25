@@ -1,49 +1,24 @@
-<div class="grid_10">
-
-  <h2><%=h @user %></h2>
+<div class="grid_9" id="container-main">
   
+  <h2>
+    <%=h @user %>
+    <% if user_signed_in? %>
+      <%= link_to 'New Sandwich', new_sandwich_path, :class => 'new-sandwich' %>
+    <% end %>
+  </h2>
   <% if @user.sandwiches.present? %>
-    <div id="swfupload-playlist">
-      <% @user.sandwiches.each_with_index do |sandwich,i| %>
-        <% klass = (i % 3 == 0 || i == 0) ? "alpha" : (i % 3 == 2) ? "omega" : "" %>
-        <div class="sandwich grid_3 <%= klass %>">
-          <%= render sandwich %>
-        </div>
-        <% if klass == 'omega' %>
-          <div class="clear"></div>
-        <% end %>
-      <% end %>
-      <div class="clear"></div>
-    </div>
+    <%= render :partial => 'sandwiches/sandwiches', :locals => {:sandwiches => @user.sandwiches} %>
   <% end %>
-
+  
 </div>
 
-<div id="users" class="grid_2">
-
-  <h2>following</h2>
-
-  <% if @user.followings.present? %>
-    <ul>
-      <% @user.followings.sort_by{|u| u.login.downcase}.each do |user| %>
-        <li><%= render user %></li>
-      <% end %>
-    </ul>
-  <% else %>
-    <li class="disabled">n/a</li>
-  <% end %>
-
-  <h2 class="pad_top">followers</h2>
-
-  <% if @user.followers %>
-    <ul>
-      <% # TODO followings/followers ordering not working, so using sort_by here %>
-      <% @user.followers.sort_by{|u| u.login.downcase}.each do |user| %>
-        <li><%= render user %></li>
-      <% end %>
-    </ul>
-  <% else %>
-    <li class="disabled">n/a</li>
-  <% end %>
-
+<div id="users" class="grid_3">
+  
+  <h2>People</h2>
+  <ul class="users">
+    <% @users.sort_by{|u| u.login.downcase}.each do |user| %>
+      <li><%= render user %></li>
+    <% end if @users %>
+  </ul>
+  
 </div>

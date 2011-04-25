@@ -3,12 +3,13 @@ class SandwichesController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
   before_filter :get_audio_info, :only => :create
   
+  # TODO: add validation to ensure no less or no more than 3 songs per sandwich
+  
   def index
-    @feed_items = current_user.feed_items.all :include => {:sandwich => :user}
-    @followings = current_user.followings :include => :user
+    @sandwiches = Sandwich.all
+    @users = User.all
     respond_to do |format|
       format.html
-      format.rss
     end
   end
 
@@ -17,7 +18,6 @@ class SandwichesController < ApplicationController
   end
 
   def create
-    # problem: this sandwich needs to belong to the current user!
     @sandwich = current_user.sandwiches.build(:name => params[:name])
     @songs.each do |file|
       @sandwich.posts << current_user.posts.build(:mp3 => file[:filedata], :title => file[:title], :artist => file[:artist], :album => file[:album])

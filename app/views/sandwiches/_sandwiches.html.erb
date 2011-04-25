@@ -1,0 +1,12 @@
+<div id="sandwiches">
+  <% sandwiches.each_with_index do |sandwich,i| %>
+    <% klass = (i % 3 == 0 || i == 0) ? "alpha" : (i % 3 == 2) ? "omega" : "" %>
+    <div class="sandwich grid_3 <%= klass %>">
+      <%= render sandwich %>
+    </div>
+    <% if klass == 'omega' %>
+      <div class="clear"></div>
+    <% end %>
+  <% end %>
+  <div class="clear"></div>
+</div>

@@ -10,24 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110425020116) do
-
-  create_table "feed_items", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "poster_id"
-    t.datetime "created_at"
-    t.integer  "sandwich_id"
-    t.datetime "sandwich_created_at"
-  end
-
-  add_index "feed_items", ["user_id"], :name => "index_feed_items_on_user_id"
-
-  create_table "follows", :force => true do |t|
-    t.integer  "follower_id"
-    t.integer  "following_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110425175214) do
 
   create_table "invitations", :force => true do |t|
     t.integer  "user_id"
@@ -78,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20110425020116) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "authentication_token"
+    t.boolean  "admin"
   end
 
 end

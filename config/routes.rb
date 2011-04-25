@@ -1,4 +1,4 @@
-Kzak::Application.routes.draw do
+Sandwiches::Application.routes.draw do
   root :to => 'sandwiches#index'
   resources :sandwiches
   resources :posts, :only => [:index, :new, :create]

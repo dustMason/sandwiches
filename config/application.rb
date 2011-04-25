@@ -12,7 +12,7 @@ CONFIG['host'] = CONFIG['domain'].gsub('http://', '').gsub('https://', '') rescu
 ENV['s3_access_key_id'] ||= CONFIG['s3_access_id']
 ENV['s3_secret_access_key'] ||= CONFIG['s3_secret_key']
 
-module Kzak
+module Sandwiches
   class Application < Rails::Application
     config.session_store :cookie_store, :key => CONFIG['session_key'], :secret => CONFIG['session_secret']
     config.secret_token = CONFIG['secret_token']
