@@ -1340,7 +1340,7 @@ function human_size(bytes) {
 // soundmanager
 
 // demo only, but you can use these settings too..
-soundManager.useHTML5Audio = true;
+soundManager.useHTML5Audio = true; 
 soundManager.flashVersion = 9;
 soundManager.useHighPerformance = true; // keep flash on screen, boost performance
 soundManager.wmode = 'transparent'; // transparent SWF, if possible
