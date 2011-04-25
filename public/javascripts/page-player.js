@@ -387,7 +387,7 @@ function PagePlayer() {
     whileplaying: function() {
       var d = null;
       if (pl.dragActive || !pl.config.useThrottling) {
-        self.updateTime.apply(this);
+        // self.updateTime.apply(this);
         if (sm.flashVersion >= 9) {
           if (pl.config.usePeakData && this.instanceOptions.usePeakData) {
             self.updatePeaks.apply(this);
@@ -407,7 +407,7 @@ function PagePlayer() {
       } else {
         d = new Date();
         if (d-self.lastWPExec>30) {
-          self.updateTime.apply(this);
+          // self.updateTime.apply(this);
           if (sm.flashVersion >= 9) {
             if (pl.config.usePeakData && this.instanceOptions.usePeakData) {
               self.updatePeaks.apply(this);
@@ -501,11 +501,11 @@ function PagePlayer() {
     }
   };
   
-  this.updateTime = function() {
-    var str = self.strings.timing.replace('%s1',self.getTime(this.position,true));
-    str = str.replace('%s2',self.getTime(self.getDurationEstimate(this),true));
-    this._data.oTiming.innerHTML = str;
-  };
+  // this.updateTime = function() {
+  //   var str = self.strings.timing.replace('%s1',self.getTime(this.position,true));
+  //   str = str.replace('%s2',self.getTime(self.getDurationEstimate(this),true));
+  //   this._data.oTiming.innerHTML = str;
+  // };
 
   this.getTheDamnTarget = function(e) {
     return (e.target||(window.event?window.event.srcElement:null));
@@ -549,13 +549,13 @@ function PagePlayer() {
 
     sURL = o.getAttribute('href');
 
-    if (!o.href || (!sm.canPlayURL(sURL) && !self.hasClass(o,'playable')) || self.hasClass(o,'exclude')) {
+    if (!o.href || (!sm.canPlayLink(o) && !self.hasClass(o,'playable')) || self.hasClass(o,'exclude')) {
 
       // do nothing, don't return anything.
       return true;
 
     } else {
-      
+
       // we have something we're interested in.
 
       // find and init parent UL, if need be
@@ -589,7 +589,7 @@ function PagePlayer() {
             self.stopSound(self.lastSound);
           }
           if (spectrumContainer) {
-            thisSound._data.oTimingBox.appendChild(spectrumContainer);
+            // thisSound._data.oTimingBox.appendChild(spectrumContainer);
           }
           thisSound.togglePause(); // start playing current
         }
@@ -628,8 +628,8 @@ function PagePlayer() {
           oStatus: self.select('statusbar',oLI),
           oLoading: self.select('loading',oLI),
           oPosition: self.select('position',oLI),
-          oTimingBox: self.select('timing',oLI),
-          oTiming: self.select('timing',oLI).getElementsByTagName('div')[0],
+          // oTimingBox: self.select('timing',oLI),
+          // oTiming: self.select('timing',oLI).getElementsByTagName('div')[0],
           oPeak: self.select('peak',oLI),
           oGraph: self.select('spectrum-box',oLI),
           className: self.css.sPlaying,
@@ -638,7 +638,7 @@ function PagePlayer() {
         };
 
         if (spectrumContainer) {
-          thisSound._data.oTimingBox.appendChild(spectrumContainer);
+          // thisSound._data.oTimingBox.appendChild(spectrumContainer);
         }
 
         // "Metadata"
@@ -647,9 +647,9 @@ function PagePlayer() {
         }
 
         // set initial timer stuff (before loading)
-        str = self.strings.timing.replace('%s1',self.config.emptyTime);
-        str = str.replace('%s2',self.config.emptyTime);
-        thisSound._data.oTiming.innerHTML = str;
+        // str = self.strings.timing.replace('%s1',self.config.emptyTime);
+        // str = str.replace('%s2',self.config.emptyTime);
+        // thisSound._data.oTiming.innerHTML = str;
         self.sounds.push(thisSound);
         if (self.lastSound) {
           self.stopSound(self.lastSound);
@@ -953,11 +953,11 @@ function PagePlayer() {
       '   </div>',
       '  </div>',
 
-      '  <div class="timing">',
-      '   <div id="sm2_timing" class="timing-data">',
-      '    <span class="sm2_position">%s1</span> / <span class="sm2_total">%s2</span>',
-      '   </div>',
-      '  </div>',
+      // '  <div class="timing">',
+      // '   <div id="sm2_timing" class="timing-data">',
+      // '    <span class="sm2_position">%s1</span> / <span class="sm2_total">%s2</span>',
+      // '   </div>',
+      // '  </div>',
 
       '  <div class="peak">',
       '   <div class="peak-box"><span class="l"></span><span class="r"></span></div>',
@@ -1002,10 +1002,10 @@ function PagePlayer() {
 
     self.oControls = controlTemplate.cloneNode(true);
 
-    oTiming = self.select('timing-data',controlTemplate);
-    self.strings.timing = oTiming.innerHTML;
-    oTiming.innerHTML = '';
-    oTiming.id = '';
+    // oTiming = self.select('timing-data',controlTemplate);
+    // self.strings.timing = oTiming.innerHTML;
+    // oTiming.innerHTML = '';
+    // oTiming.id = '';
 
     function doEvents(action) { // action: add / remove
 

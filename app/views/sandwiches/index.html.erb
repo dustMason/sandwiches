@@ -1,8 +1,7 @@
 <div class="grid_9" id="container-main">
 
   <h2>
-    menu
-    <!-- <a href="#shuffle" class="shuffle">shuffle</a> -->
+    Latest
     <% if user_signed_in? %>
       <%= link_to 'New Sandwich', new_sandwich_path, :class => 'new-sandwich' %>
     <% end %>
@@ -16,7 +15,11 @@
       <div class="sandwich grid_3 <%= klass %>">
         <%= render feed_item.sandwich %>
       </div>
+      <% if klass == 'omega' %>
+        <div class="clear"></div>
+      <% end %>
     <% end if @feed_items %>
+    <div class="clear"></div>
   </div>
 
 </div>

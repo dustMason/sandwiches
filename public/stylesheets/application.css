@@ -1,4 +1,5 @@
 body {
+  font: 100% "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 20px 40px;
 /*	background: url('/images/background.gif');*/
 	color: #111;
@@ -14,7 +15,11 @@ h1, h2, h3 {
 h1 { font-size: 50px; margin-bottom:10px;}
 h1 a { color: #111; }
 h2 { font-size: 24px; border-top: 1px solid #dedede; border-bottom: 1px solid #dedede; padding:5px 0; margin-bottom:5px;}
-h3 { padding-bottom: 3px; }
+h3 {
+  font-size: 24px;
+/*  font-weight: bold;*/
+  padding-bottom: 3px;
+}
 p { margin: 1em 0; }
 #nav {float:right;}
 #nav span {color:#dedede;}
@@ -35,16 +40,26 @@ p { margin: 1em 0; }
 .invitation_submit {margin-top:-1em;}
 .error {color:#8a1f11;font-weight:bold;}
 .success {color:#264409;}
+.clear { clear:both; }
+
+#swfupload-playlist {
+/*  padding-top: 20px;*/
+}
 
 .sandwich {
-	padding: 0 0 10px 0;
+	padding: 20px 0 0 0;
 }
 	.sandwich ul {}
-	.sandwich h3 {}
+	.sandwich h3 {
+	  padding-left: 4px;
+	  color: #666;
+	}
 	.sandwich li {
 		background: #D9D9D9;
 		padding: 3px;
 		margin-bottom: 3px;
 	}
 	.sandwich li p { padding: 0; margin: 0; }
+  .sandwich .title { font-weight: 500; }
+  .sandwich .artist { color: #818181; font-weight: 200; }
 	.sandwich li a {}
