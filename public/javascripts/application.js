@@ -8,12 +8,6 @@ function human_size(bytes) {
 
 $(document).ready(function(){
   
-  // shuffle
-  
-  // $(".shuffle").click(function(){
-  //   $('.playlist li').shuffle();
-  // });
-  
   // new invitation form
 
   $("input#invitation_email").ezpz_hint();
@@ -35,81 +29,79 @@ $(document).ready(function(){
     resetForm : true
   });
 
-  // new post form
-
-  // function newPostSubmit() {
-  //   $("#new_post_status").html('<img src="/images/spinner1.gif" /></div>');
-  //   $("#new_post_submit").attr("value", "uploading...").attr("disabled", true);
-  // }
-  // 
-  // function newPostSuccess(response) {
-  //   $("#new_post_submit").attr("value", "upload").attr("disabled", false);
-  //   $("#new_post_status").html('');
-  //   $("#swfupload-playlist").prepend('<li>'+response+'</li>');
-  //   $(".post:first").makePlayable();
-  // 
-  // }
-  // 
-  // $('#new_post').ajaxForm({
-  //   beforeSubmit : newPostSubmit,
-  //   success : newPostSuccess,
-  //   clearForm : true,
-  //   resetForm : true
-  // });
-
   // soundmanager
-
-  var sm = soundManager;
-
-  sm.url = '/flash';
-  sm.debugMode = false;
-  sm.useConsole = false;
-  sm.useHighPerformance = true;
+  
+  // demo only, but you can use these settings too..
   soundManager.flashVersion = 9;
-  sm.useMovieStar = true; // MP4/M4A/AAC
+  soundManager.useHighPerformance = true; // keep flash on screen, boost performance
+  soundManager.wmode = 'transparent'; // transparent SWF, if possible
+  soundManager.useFastPolling = true; // increased JS callback frequency
+  soundManager.url = '/flash/';
 
-  sm.onready(function(){
-    $('a.post').each(function(){
-      $(this).makePlayable();
-    });
-  });
+  // custom page player configuration
 
-  $.fn.makePlayable = function(){
-    $(this).addClass('playable');
+  var PP_CONFIG = {
+    autoStart: false,      // begin playing first sound when page loads
+    playNext: true,        // stop after one sound, or play through list until end
+    useThrottling: false,  // try to rate-limit potentially-expensive calls (eg. dragging position around)</span>
+    usePeakData: true,     // [Flash 9 only] whether or not to show peak data (left/right channel values) - nor noticable on CPU
+    useWaveformData: false,// [Flash 9 only] show raw waveform data - WARNING: LIKELY VERY CPU-HEAVY
+    useEQData: false,      // [Flash 9 only] show EQ (frequency spectrum) data
+    useFavIcon: false,     // try to apply peakData to address bar (Firefox + Opera) - performance note: appears to make Firefox 3 do some temporary, heavy disk access/swapping/garbage collection at first(?) - may be too heavy on CPU
+    useMovieStar: true     // Flash 9.0r115+ only: Support for a subset of MPEG4 formats.
+  }
 
-    soundManager.createSound({
-     id:$(this).attr('id'),
-     url:$(this).attr('href'),
-     onfinish:function(){
-       $('#'+this.sID).parent().next().find('a.playable').play();
-     }
-    });
-
-    $(this).click(function(e){
-      e.preventDefault();
-      $(this).play();
-    });
-  };
-
-  $.fn.play = function(){
-    if ($(this).hasClass('playing')){
-      $(this).removeClass('playing');
-      $(this).addClass('paused');
-      sm.pause($(this).attr('id'));
-      return;
-    } if ($(this).hasClass('paused')){
-      $(this).removeClass('paused');
-      $(this).addClass('playing');
-      sm.resume($(this).attr('id'));
-      return;
-    } else {
-      sm.stopAll();
-      $('.playing').removeClass('playing');
-      $('.paused').removeClass('paused');
-      $(this).addClass('playing');
-      sm.play($(this).attr('id'));
-      return;
-    }
-  };
+  // var sm = soundManager;
+  // 
+  // sm.url = '/flash';
+  // sm.debugMode = false;
+  // sm.useConsole = false;
+  // sm.useHighPerformance = true;
+  // soundManager.flashVersion = 9;
+  // sm.useMovieStar = true; // MP4/M4A/AAC
+  // 
+  // sm.onready(function(){
+  //   $('a.post').each(function(){
+  //     $(this).makePlayable();
+  //   });
+  // });
+  // 
+  // $.fn.makePlayable = function(){
+  //   $(this).addClass('playable');
+  // 
+  //   soundManager.createSound({
+  //    id:$(this).attr('id'),
+  //    url:$(this).attr('href'),
+  //    onfinish:function(){
+  //      $('#'+this.sID).parent().next().find('a.playable').play();
+  //    }
+  //   });
+  // 
+  //   $(this).click(function(e){
+  //     e.preventDefault();
+  //     $(this).play();
+  //   });
+  // };
+  // 
+  // $.fn.play = function(){
+  //   if ($(this).hasClass('playing')){
+  //     $(this).removeClass('playing');
+  //     $(this).addClass('paused');
+  //     sm.pause($(this).attr('id'));
+  //     return;
+  //   } if ($(this).hasClass('paused')){
+  //     $(this).removeClass('paused');
+  //     $(this).addClass('playing');
+  //     sm.resume($(this).attr('id'));
+  //     return;
+  //   } else {
+  //     sm.stopAll();
+  //     $('.playing').removeClass('playing');
+  //     $('.paused').removeClass('paused');
+  //     $(this).addClass('playing');
+  //     sm.play($(this).attr('id'));
+  //     return;
+  //   }
+  // };
 
 });

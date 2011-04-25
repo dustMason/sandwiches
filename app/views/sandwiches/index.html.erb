@@ -1,4 +1,4 @@
-<div class="grid_9">
+<div class="grid_9" id="container-main">
 
   <h2>
     menu
@@ -10,7 +10,7 @@
 
 
 
-  <div id="swfupload-playlist" class="playlist">
+  <div id="swfupload-playlist">
     <% @feed_items.each_with_index do |feed_item,i| %>
       <% klass = (i % 3 == 0 || i == 0) ? "alpha" : (i % 3 == 2) ? "omega" : "" %>
       <div class="sandwich grid_3 <%= klass %>">

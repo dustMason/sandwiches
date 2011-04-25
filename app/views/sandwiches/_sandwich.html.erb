@@ -1,6 +1,6 @@
 <%#= debug sandwich %>
 <h3><%= sandwich.name %></h3>
-<ul>
+<ul class="playlist">
   <% sandwich.posts.each do |post| %>
     <li>
       <a id="<%= "post-#{post.id}" %>" class="post" href="<%= post.mp3.url %>">
