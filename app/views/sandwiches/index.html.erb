@@ -8,7 +8,8 @@
   </h2>
 
    <%= render :partial => 'sandwiches/sandwiches', :locals => {:sandwiches => @sandwiches} %>
-
+   <%= will_paginate @sandwiches %>
+   
 </div>
 
 <div id="users" class="grid_3">

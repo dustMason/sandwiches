@@ -2,6 +2,9 @@ class Sandwich < ActiveRecord::Base
   has_many :posts, :dependent => :destroy
   belongs_to :user
   
+  cattr_reader :per_page
+  @@per_page = 9
+  
   default_scope :order => 'created_at DESC'
   
   validates_associated :posts

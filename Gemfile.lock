@@ -145,6 +145,7 @@ GEM
     tzinfo (0.3.24)
     warden (1.0.3)
       rack (>= 1.0.0)
+    will_paginate (3.0.pre2)
     yajl-ruby (0.7.9)
 
 PLATFORMS
@@ -172,4 +173,5 @@ DEPENDENCIES
   sqlite3-ruby
   thin
   toadhopper
+  will_paginate (~> 3.0.pre2)
   yajl-ruby
