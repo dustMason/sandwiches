@@ -10,9 +10,9 @@ $(document).ready(function(){
   
   // shuffle
   
-  $(".shuffle").click(function(){
-    $('.playlist li').shuffle();
-  });
+  // $(".shuffle").click(function(){
+  //   $('.playlist li').shuffle();
+  // });
   
   // new invitation form
 
@@ -37,25 +37,25 @@ $(document).ready(function(){
 
   // new post form
 
-  function newPostSubmit() {
-    $("#new_post_status").html('<img src="/images/spinner1.gif" /></div>');
-    $("#new_post_submit").attr("value", "uploading...").attr("disabled", true);
-  }
-
-  function newPostSuccess(response) {
-    $("#new_post_submit").attr("value", "upload").attr("disabled", false);
-    $("#new_post_status").html('');
-    $("#swfupload-playlist").prepend('<li>'+response+'</li>');
-    $(".post:first").makePlayable();
-
-  }
-
-  $('#new_post').ajaxForm({
-    beforeSubmit : newPostSubmit,
-    success : newPostSuccess,
-    clearForm : true,
-    resetForm : true
-  });
+  // function newPostSubmit() {
+  //   $("#new_post_status").html('<img src="/images/spinner1.gif" /></div>');
+  //   $("#new_post_submit").attr("value", "uploading...").attr("disabled", true);
+  // }
+  // 
+  // function newPostSuccess(response) {
+  //   $("#new_post_submit").attr("value", "upload").attr("disabled", false);
+  //   $("#new_post_status").html('');
+  //   $("#swfupload-playlist").prepend('<li>'+response+'</li>');
+  //   $(".post:first").makePlayable();
+  // 
+  // }
+  // 
+  // $('#new_post').ajaxForm({
+  //   beforeSubmit : newPostSubmit,
+  //   success : newPostSuccess,
+  //   clearForm : true,
+  //   resetForm : true
+  // });
 
   // soundmanager
 

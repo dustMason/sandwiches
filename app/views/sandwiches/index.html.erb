@@ -1,0 +1,43 @@
+<div class="grid_9">
+
+  <h2>
+    menu
+    <!-- <a href="#shuffle" class="shuffle">shuffle</a> -->
+    <% if user_signed_in? %>
+      <%= link_to 'New Sandwich', new_sandwich_path, :class => 'new-sandwich' %>
+    <% end %>
+  </h2>
+
+
+
+  <div id="swfupload-playlist" class="playlist">
+    <% @feed_items.each_with_index do |feed_item,i| %>
+      <% klass = (i % 3 == 0 || i == 0) ? "alpha" : (i % 3 == 2) ? "omega" : "" %>
+      <div class="sandwich grid_3 <%= klass %>">
+        <%= render feed_item.sandwich %>
+      </div>
+    <% end if @feed_items %>
+  </div>
+
+</div>
+
+<div id="users" class="grid_3">
+
+  <h2>following</h2>
+
+  <ul class="users">
+    <% # TODO followings/followers ordering not working, so using sort_by here %>
+    <% @followings.sort_by{|u| u.login.downcase}.each do |user| %>
+      <li><%= render user %></li>
+    <% end if @followings %>
+  </ul>
+
+  <h2 class="pad_top">invite a new user</h2>
+
+  <%= render 'invitations/form' %>
+
+</div>
+
+<% content_for :footer do %>
+  <%#= render 'uploader' %>
+<% end %>

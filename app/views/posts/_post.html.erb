@@ -1,1 +1,4 @@
-<a id="<%= "post-#{post.id}" %>" class="post" href="<%= post.mp3.url %>"><%= post %></a>
+<a id="<%= "post-#{post.id}" %>" class="post" href="<%= post.mp3.url %>">
+  <p><%= post.title %></p>
+  <p><%= post.artist %> (<%= post.album %>)</p>
+</a>

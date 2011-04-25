@@ -1,0 +1,17 @@
+<div class="grid_12">
+
+  <h2>New Sandwich</h2>
+
+  <%= form_tag sandwiches_path, :id => 'new_sandwich', :multipart => true do %>
+    <p><%= text_field_tag :name %></p>
+    <p><%= file_field_tag "songs[1]" %></p>
+    <p><%= file_field_tag "songs[2]" %></p>
+    <p><%= file_field_tag "songs[3]" %></p>
+    <p><%= submit_tag "upload", :id => "new_sandwich_submit" %></p>
+    <div id="new_sandwich_status"></div>
+  <% end %>
+
+  <ul id="swfupload-playlist" class="playlist">
+  </ul>
+
+</div>

@@ -1,5 +1,6 @@
 Kzak::Application.routes.draw do
-  root :to => 'posts#index'
+  root :to => 'sandwiches#index'
+  resources :sandwiches
   resources :posts, :only => [:index, :new, :create]
   resources :invitations, :only => [:create]
   resources :users, :only => [:new, :create]

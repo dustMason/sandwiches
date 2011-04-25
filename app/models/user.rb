@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   devise :token_authenticatable, :database_authenticatable, :rememberable, :trackable, :recoverable, :validatable
 
   has_many :posts, :order => 'posts.created_at DESC'
-  has_many :feed_items, :order => 'feed_items.post_created_at DESC'
+  has_many :sandwiches, :order => 'sandwiches.created_at DESC'
+  has_many :feed_items, :order => 'feed_items.sandwich_created_at DESC'
   has_many :invitations, :order => 'invitations.created_at DESC'
 
   has_many :follows_where_they_are_doing_the_following, :foreign_key => :follower_id, :class_name => 'Follow'
