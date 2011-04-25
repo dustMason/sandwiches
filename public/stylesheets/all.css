@@ -70,12 +70,23 @@ form.inline p { margin-bottom:0; }
 .form_notice a   { color: #514721; }
 .form_success a  { color: #264409; }
 
-body { margin: 20px 40px; color: #111; }
+body {
+	margin: 20px 40px;
+/*	background: url('/images/background.gif');*/
+	color: #111;
+}
+/*#container-main, #users { background: #fff; }*/
 a { color: #3465a4; text-decoration: none; }
 a:hover { text-decoration: underline; }
-h1 { font-size: 30px; margin-bottom:10px;}
+h1, h2, h3 {
+	font-family: 'Covered By Your Grace', arial, serif;
+	font-weight: normal;
+/*	text-transform: uppercase;*/
+}
+h1 { font-size: 50px; margin-bottom:10px;}
 h1 a { color: #111; }
-h2 { border-top: 1px solid #dedede; border-bottom: 1px solid #dedede; padding:5px 0; margin-bottom:5px;}
+h2 { font-size: 24px; border-top: 1px solid #dedede; border-bottom: 1px solid #dedede; padding:5px 0; margin-bottom:5px;}
+h3 { padding-bottom: 3px; }
 p { margin: 1em 0; }
 #nav {float:right;}
 #nav span {color:#dedede;}
