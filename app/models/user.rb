@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   validates_format_of :login, :with => /^[a-zA-Z0-9\_]*?$/, :message => "can only contain letters, numbers and _"
   validates_format_of :login, :with => /^[a-zA-Z]/, :message => "must begin with a letter"
   validates_uniqueness_of :login, :email
+  
+  before_save :ensure_authentication_token
 
   def to_param
     login
