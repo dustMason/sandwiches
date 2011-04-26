@@ -11,14 +11,13 @@ class Sandwich < ActiveRecord::Base
   validates_presence_of :name
   validate :must_have_3_posts
 
-   def must_have_3_posts
-     errors.add(:songs, "It takes 3 songs to make a sandwich") if
-       !posts.size == 3
-   end
-   
-   def to_s
-     names = sandwiches.collect { |s| s.artist }
-     names.join(', ');
-   end
+  def must_have_3_posts
+    errors.add(:songs, "It takes 3 songs to make a sandwich") if
+      !posts.size == 3
+  end
+
+  def to_s
+    posts.collect{ |s| s.artist }.join(', ');
+  end
 
 end
