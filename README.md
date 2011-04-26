@@ -1,7 +1,15 @@
+Sandwiches
+=================
+
+**A Sandwich is a stack of 3 songs, to be enjoyed in a certain order.** This is a rails app to help create and share them with your friends. Its based on KZAK (see below). Some technical changes from KZAK include:
+- fragment caching (stored with memcached via the dalli gem)
+- pagination with will_paginate
+
+---
+Readme inherited from KZAK below:
+
 About
 ============
-
-**This fork of KZAK makes sandwiches.**
 
 KZAK is a web-based jukebox.
 http://github.com/trevorturk/kzak/
