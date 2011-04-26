@@ -40,6 +40,7 @@ GEM
     columnize (0.3.2)
     configuration (1.2.0)
     daemons (1.1.0)
+    dalli (1.0.3)
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
@@ -154,6 +155,7 @@ PLATFORMS
 DEPENDENCIES
   autotest-rails
   carrierwave (= 0.5.3)
+  dalli
   devise
   faker
   flash_cookie_session
