@@ -15,5 +15,10 @@ class Sandwich < ActiveRecord::Base
      errors.add(:songs, "It takes 3 songs to make a sandwich") if
        !posts.size == 3
    end
+   
+   def to_s
+     names = sandwiches.collect { |s| s.artist }
+     names.join(', ');
+   end
 
 end
