@@ -4,7 +4,7 @@ class SandwichesController < ApplicationController
   before_filter :get_audio_info, :only => :create
     
   def index    
-    @sandwiches = Sandwich.all(:include => [:user, {:posts => :sandwich}]).paginate(:page => params[:page])
+    @sandwiches = Sandwich.paginate(:page => params[:page], :include => [:user, :posts])
     @users = User.all
     respond_to do |format|
       format.html
