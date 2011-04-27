@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
 
   mount_uploader :mp3, Mp3Uploader
 
-  belongs_to :user, :counter_cache => :posts_count
+  belongs_to :user
   belongs_to :sandwich
 
   validates_presence_of :user_id, :mp3

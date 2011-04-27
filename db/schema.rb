@@ -10,40 +10,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110425175214) do
+ActiveRecord::Schema.define(:version => 20110427001620) do
 
   create_table "invitations", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "email"
-    t.string   "code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "new_user_id"
-    t.datetime "redeemed_at"
+    t.integer   "user_id"
+    t.string    "email"
+    t.string    "code"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "new_user_id"
+    t.timestamp "redeemed_at"
   end
 
   create_table "posts", :force => true do |t|
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "mp3"
-    t.string   "title"
-    t.string   "artist"
-    t.string   "album"
-    t.integer  "sandwich_id"
+    t.integer   "user_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "mp3"
+    t.string    "title"
+    t.string    "artist"
+    t.string    "album"
+    t.integer   "sandwich_id"
   end
 
   create_table "sandwiches", :force => true do |t|
-    t.string   "name"
-    t.integer  "user_id"
-    t.integer  "play_count"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.integer   "user_id"
+    t.integer   "play_count"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "users", :force => true do |t|
     t.string   "login"
-    t.integer  "posts_count",                        :default => 0, :null => false
     t.integer  "followings_count",                   :default => 0, :null => false
     t.integer  "followers_count",                    :default => 0, :null => false
     t.datetime "created_at"
@@ -62,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20110425175214) do
     t.string   "last_sign_in_ip"
     t.string   "authentication_token"
     t.boolean  "admin"
+    t.integer  "sandwiches_count"
   end
 
 end

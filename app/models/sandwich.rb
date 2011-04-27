@@ -1,6 +1,6 @@
 class Sandwich < ActiveRecord::Base
   has_many :posts, :dependent => :destroy
-  belongs_to :user
+  belongs_to :user, :counter_cache => :sandwiches_count
   
   cattr_reader :per_page
   @@per_page = 9

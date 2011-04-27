@@ -45,6 +45,21 @@ p { margin: 1em 0; }
 
 #sm2-container { width: 10px; height: 10px; }
 
+.users {}
+	.users li {
+		padding: 3px 0;
+	}
+		.users li span {
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+			font-size: 11px;
+			font-weight: bold;
+			color: #fff;
+			padding: 4px;
+			background: #BABABA;
+		}
+
 .errorExplanation {
   color:#8a1f11;
   border: 1px solid red;
