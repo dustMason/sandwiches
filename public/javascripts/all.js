@@ -1386,16 +1386,18 @@ $(document).ready(function(){
   
   $('#sandwiches h5 a').toggle(function(e) {
     e.preventDefault();
-    // grab comments via ajax
     var cur = $(this).html();
     var me = this;
     $(this).html('Loading...').closest('.sandwich').find('.comments').load($(this).attr('href'),function(){
         $(me).html(cur);
         $(this).slideDown('fast');
         $(this).find('form').ajaxForm({
-          success: function(resp,a,me) {
-            me.siblings('ul').append(resp);
-            me.find('textarea').val('');
+          beforeSubmit: function(arr,form) {
+            form.siblings('ul').find('li.error').remove();
+          },
+          success: function(resp,a,form) {
+            form.siblings('ul').append(resp);
+            form.find('textarea').val('');
           }
         });
     });

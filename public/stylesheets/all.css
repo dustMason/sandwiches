@@ -437,6 +437,11 @@ p { margin: 1em 0; }
 .success {color:#264409;}
 .clear { clear:both; }
 
+.formErrors li, .formErrors h5 {
+	padding: 0 !important;
+	margin: 0;
+}
+
 #sm2-container { width: 10px; height: 10px; }
 
 .users {}
