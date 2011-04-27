@@ -491,10 +491,10 @@ p { margin: 1em 0; }
 	.sandwich .comments {
 		display: none;
 		margin: 5px 0;
-		font-size: 12px;
 	}
 		.sandwich .comments li {
-			padding: 2px 0;
+			padding: 2px 0 0 8px;
+			font-size: 12px;
 		}
 			.sandwich .comments li strong {
 				color: #999;
