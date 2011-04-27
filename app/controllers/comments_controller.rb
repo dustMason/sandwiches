@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
     if @comment.save
       render :partial => 'comment', :locals => {:comment => @comment}
     else
+      render :partial => 'error'
       # render :action => "new"
       # i dunno
     end

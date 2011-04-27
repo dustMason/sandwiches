@@ -38,3 +38,8 @@ User.blueprint do
   email { Sham.email }
   password 'test'
 end
+
+Comment.blueprint do
+  user { User.make }
+  text { Sham.sentences }
+end

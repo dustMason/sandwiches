@@ -60,11 +60,11 @@ class UserTest < ActiveSupport::TestCase
     assert u2.errors[:email]
   end
 
-  test "has many posts" do
-    u = User.make
-    r = Post.make(:user => u)
-    assert_equal u.posts, [r]
-  end
+  # test "has many posts" do
+  #   u = User.make
+  #   r = Post.make(:user => u)
+  #   assert_equal u.posts, [r]
+  # end
 
   test "has many invitations" do
     u = User.make

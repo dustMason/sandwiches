@@ -9,7 +9,7 @@ xml.rss :version => "2.0" do
         xml.author(sandwich.user)
         xml.pubDate sandwich.created_at.utc.to_s(:rfc822)
         xml.link CONFIG['domain']
-        xml.guid "#{CONFIG['domain']}/#{sandwich.user}?r=#{rand(36**8).to_s(36)}"
+        xml.guid "#{CONFIG['domain']}/#{sandwich.id}"
       end
     end
   end if @sandwiches
