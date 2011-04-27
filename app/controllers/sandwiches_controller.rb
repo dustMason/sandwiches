@@ -5,7 +5,7 @@ class SandwichesController < ApplicationController
     
   def index    
     @sandwiches = Sandwich.paginate(:page => params[:page], :include => [:user, :posts, :likes], :order => 'created_at DESC')
-    @users = User.all :order => 'points DESC'
+    @users = User.all
     respond_to do |format|
       format.html
       format.rss
@@ -14,7 +14,7 @@ class SandwichesController < ApplicationController
   
   def greatest
     @sandwiches = Sandwich.paginate(:page => params[:page], :include => [:user, :posts, :likes], :order => "likes_count DESC, created_at DESC")
-    @users = User.all :order => 'points DESC'
+    @users = User.all
     render :action => "index"
   end
 
