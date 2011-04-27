@@ -483,6 +483,16 @@ p { margin: 1em 0; }
 	.sandwich h4 {
 	  padding-bottom: 5px;
 	}
+	.sandwich h5 { padding-bottom: 4px; }
+	.sandwich h5 .count {
+		padding: 2px 4px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		background: #9A9DAD;
+		color: #fff;
+		font-weight: bold;
+	}
 	.sandwich li {
 /*		background: #D9D9D9;*/
 /*		padding: 3px;*/
