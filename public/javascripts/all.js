@@ -1383,6 +1383,32 @@ $(document).ready(function(){
     clearForm : true,
     resetForm : true
   });
+  
+  $('#sandwiches h5 a').toggle(function(e) {
+    e.preventDefault();
+    // grab comments via ajax
+    var cur = $(this).html();
+    var me = this;
+    $(this).html('Loading...').closest('.sandwich').find('.comments').load($(this).attr('href'),function(){
+        // Stuff to do after the page is loaded
+        $(me).html(cur);
+        $(this).show('fast');
+        $(this).find('form').ajaxForm({
+          success: function(resp,a,me) {
+            me.siblings('ul').append(resp);
+            me.find('textarea').val('');
+          }
+        });
+    });
+  }, function(e) {
+    e.preventDefault();
+    // hide comments
+    $(this).closest('.sandwich').find('.comments').hide('fast', function() {
+      $(this).html('');
+    });
+    ;
+  });
+    
 
 
 
