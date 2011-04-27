@@ -13,8 +13,7 @@ class Sandwich < ActiveRecord::Base
   validate :must_have_3_posts
 
   def must_have_3_posts
-    errors.add(:songs, "It takes 3 songs to make a sandwich") if
-      !posts.size == 3
+    errors.add(:songs, "It takes 3 songs to make a sandwich") if !posts.count == 3
   end
 
   def to_s

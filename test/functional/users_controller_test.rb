@@ -38,7 +38,6 @@ class UsersControllerTest < ActionController::TestCase
     i = Invitation.make(:user => u1, :email => 'test@example.com')
     # follows
     assert_equal 2, User.count
-    assert_equal 0, Follow.count
     # sign up
     assert_difference 'User.count' do
       post :create, :user => {:invitation => i.code, :email => i.email, :login => 'test', :password => 'test', :password_confirmation => 'test'}
@@ -51,14 +50,6 @@ class UsersControllerTest < ActionController::TestCase
     assert_equal u2, i.new_user
     assert_equal i.user, u2.inviter
     assert i.redeemed_at.present?
-    # follows (new users follow all users and are followed by all users)
-    assert_equal 4, Follow.count
-    assert !u0.following?(u1) # existing users don't follow each other
-    assert u0.following?(u2) # existing users follow new user
-    assert !u1.following?(u0) # existing users don't follow each other
-    assert u1.following?(u2) # existing users follow new user
-    assert u2.following?(u0) # new users follow all existing users
-    assert u2.following?(u1) # new users follow all existing users
     # sign in and redirect
     # assert @controller.signed_in?(:user) # TODO fix test
     assert_redirected_to root_path

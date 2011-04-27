@@ -1,39 +1,43 @@
 require 'test_helper'
 
 class SandwichesControllerTest < ActionController::TestCase
+  
   test "should get index" do
+    get :index
+    assert_redirected_to new_user_session_path
+    sign_in!
     get :index
     assert_response :success
   end
 
-  test "should get new" do
+  test "should get new" do    
+    get :new
+    assert_redirected_to new_user_session_path
+    sign_in!
     get :new
     assert_response :success
   end
 
-  test "should get create" do
-    get :create
-    assert_response :success
+  test "should create a new sandwich with 3 identical songs" do
+    sign_in!
+    assert_difference('Sandwich.count') do
+      post :create, :songs => {
+        1 => fixture_file_upload('files/audio.mp3', 'audio/mpeg'),
+        2 => fixture_file_upload('files/audio.mp3', 'audio/mpeg'),
+        3 => fixture_file_upload('files/audio.mp3', 'audio/mpeg')
+      }, :name => "Pastrami on Rye"
+    end
+    assert_redirected_to root_path
+    r = Sandwich.last
+    assert_equal 3, r.posts.count
+    assert_equal "Pastrami on Rye", r.name
+    r.posts.each { |post| 
+      assert post.mp3 != 'audio.mp3' # check for random file name
+      assert_equal 'The Love Song of J. Alfred Prufrock', post.title
+      assert_equal 'T.S. Eliot', post.artist
+      assert_equal 'Prufrock and Other Observations', post.album
+    }
   end
 
-  test "should get show" do
-    get :show
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit
-    assert_response :success
-  end
-
-  test "should get update" do
-    get :update
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get :destroy
-    assert_response :success
-  end
 
 end

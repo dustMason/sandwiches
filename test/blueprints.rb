@@ -10,18 +10,18 @@ Sham.paragraphs { Faker::Lorem.paragraphs }
 Sham.mp3 { File.open("#{Rails.root}/test/fixtures/files/audio.mp3") }
 Sham.email { Faker::Internet.email }
 
-FeedItem.blueprint do
-  post { Post.make }
-  user { User.make }
-  post_id { post.id }
-  poster_id { post.user_id }
-  post_created_at { post.created_at }
-end
+# FeedItem.blueprint do
+#   post { Post.make }
+#   user { User.make }
+#   post_id { post.id }
+#   poster_id { post.user_id }
+#   post_created_at { post.created_at }
+# end
 
-Follow.blueprint do
-  follower { User.make }
-  following { User.make }
-end
+# Follow.blueprint do
+#   follower { User.make }
+#   following { User.make }
+# end
 
 Invitation.blueprint do
   user { User.make }
