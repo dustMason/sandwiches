@@ -1,0 +1,11 @@
+<ul>
+  <% @comments.each do |c| %>
+    <%= render :partial => 'comment', :locals => {:comment => c } %>
+  <% end if @comments %>
+</ul>
+
+<%= form_for :comment do |f| %>
+  <%= f.hidden_field :sandwich_id %>
+  <p><%= f.text_area :text %></p>
+  <p><%= f.submit "Save Comment" %></p>
+<% end %>

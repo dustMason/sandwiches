@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   devise :token_authenticatable, :database_authenticatable, :rememberable, :trackable, :recoverable, :validatable
 
   has_many :posts, :order => 'posts.created_at DESC', :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   has_many :sandwiches, :order => 'sandwiches.created_at DESC', :dependent => :destroy
   has_many :invitations, :order => 'invitations.created_at DESC'
 

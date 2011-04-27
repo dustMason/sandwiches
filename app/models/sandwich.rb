@@ -1,5 +1,6 @@
 class Sandwich < ActiveRecord::Base
   has_many :posts, :dependent => :destroy
+  has_many :comments
   belongs_to :user, :counter_cache => :sandwiches_count
   
   cattr_reader :per_page
