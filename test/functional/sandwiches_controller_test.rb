@@ -38,6 +38,24 @@ class SandwichesControllerTest < ActionController::TestCase
       assert_equal 'Prufrock and Other Observations', post.album
     }
   end
+  
+  test "create fails gracefully" do
+    sign_in!
+    assert_no_difference 'Sandwich.count' do
+      post :create, :songs => {}
+    end
+    assert_response :success
+  end
+  
+  test "should not allow a sandwich with less than 3 songs" do
+    sign_in!
+    assert_no_difference 'Sandwich.count' do
+      post :create, :songs => {
+        1 => fixture_file_upload('files/audio.mp3', 'audio/mpeg')
+      }, :name => "Pastrami on Rye"
+    end
+    assert_response :success
+  end
 
 
 end
