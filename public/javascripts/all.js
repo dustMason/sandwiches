@@ -1390,9 +1390,8 @@ $(document).ready(function(){
     var cur = $(this).html();
     var me = this;
     $(this).html('Loading...').closest('.sandwich').find('.comments').load($(this).attr('href'),function(){
-        // Stuff to do after the page is loaded
         $(me).html(cur);
-        $(this).show('fast');
+        $(this).slideDown('fast');
         $(this).find('form').ajaxForm({
           success: function(resp,a,me) {
             me.siblings('ul').append(resp);
@@ -1403,7 +1402,7 @@ $(document).ready(function(){
   }, function(e) {
     e.preventDefault();
     // hide comments
-    $(this).closest('.sandwich').find('.comments').hide('fast', function() {
+    $(this).closest('.sandwich').find('.comments').slideUp('fast', function() {
       $(this).html('');
     });
     ;
