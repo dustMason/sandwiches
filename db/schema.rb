@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110427010235) do
+ActiveRecord::Schema.define(:version => 20110427195758) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(:version => 20110427010235) do
     t.timestamp "redeemed_at"
   end
 
+  create_table "likes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "sandwich_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likes", ["user_id", "sandwich_id"], :name => "index_likes_on_user_id_and_sandwich_id", :unique => true
+
   create_table "posts", :force => true do |t|
     t.integer   "user_id"
     t.timestamp "created_at"
@@ -48,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20110427010235) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "comments_count", :default => 0
+    t.integer  "likes_count",    :default => 0
   end
 
   create_table "users", :force => true do |t|
@@ -71,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20110427010235) do
     t.string   "authentication_token"
     t.boolean  "admin"
     t.integer  "sandwiches_count"
+    t.integer  "points",                             :default => 0
   end
 
 end

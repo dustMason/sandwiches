@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  
   def index
     @comment = Comment.new :sandwich_id => params[:sandwich_id]
     @comments = Comment.find_all_by_sandwich_id params[:sandwich_id], :include => :user

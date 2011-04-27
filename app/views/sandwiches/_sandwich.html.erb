@@ -1,6 +1,16 @@
 <h3><%= sandwich.name %></h3>
 <h4>by <%= sandwich.user %></h4>
-<h5><%= link_to "#{pluralize(sandwich.comments_count, 'comment')}", sandwich_comments_path(sandwich) %></h5>
+<%#= debug sandwich %>
+<h5>
+  <span class="count"><%= sandwich.likes_count %></span>
+  <% if current_user.already_likes?(sandwich) %>
+    <%= link_to "Unlike", unlike_sandwich_path(sandwich), :class => 'like-link'  %>
+  <% else %>
+    <%= link_to "Like", like_sandwich_path(sandwich), :class => 'like-link'  %>
+  <% end %>
+  |
+  <%= link_to "#{pluralize(sandwich.comments_count, 'comment')}", sandwich_comments_path(sandwich), :class => 'comments-link'  %>
+</h5>
 <div class="comments"></div>
 <% cache(sandwich) do %> 
   <ul class="playlist">

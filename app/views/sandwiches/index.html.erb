@@ -1,7 +1,18 @@
 <div class="grid_9" id="container-main">
   
   <h2>
-    Latest
+    <% if params[:action] == 'index' %>
+      Latest
+    <% else %>
+      <%= link_to "Latest", root_path %>
+    <% end %>
+    /
+    <% if params[:action] == 'greatest' %>
+      Greatest
+    <% else %>
+      <%= link_to "Greatest", greatest_path %>
+    <% end %>
+
     <% if user_signed_in? %>
       <%= link_to 'New Sandwich', new_sandwich_path, :class => 'new-sandwich' %>
     <% end %>
@@ -18,7 +29,7 @@
 
   <ul class="users">
     
-    <% @users.sort_by{|u| u.login.downcase}.each do |user| %>
+    <% @users.each do |user| %>
       <li><%= render user %></li>
     <% end if @users %>
     

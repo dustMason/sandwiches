@@ -53,7 +53,32 @@ $(document).ready(function(){
     resetForm : true
   });
   
-  $('#sandwiches h5 a').toggle(function(e) {
+  $('#sandwiches h5 .like-link').click(function(e) {
+    e.preventDefault();
+    var url = $(this).attr('href');
+    var action = url.split('/').pop();
+    var me = this;
+    $(this).html('...');
+    $.getJSON(url, function(json) {
+      if (action == 'like') {
+        // we just liked it, change the link to unlike
+        $(me).attr('href', url.replace('like','unlike'));
+        $(me).html('Unlike');
+        // increment the count!
+        var cur = $(me).siblings('.count').html();
+        $(me).siblings('.count').html(parseInt(cur)+1);
+      } else {
+        // we just unliked it, change the link to like
+        $(me).attr('href', url.replace('unlike','like'));
+        $(me).html('Like');
+        // decrement the count!
+        var cur = $(me).siblings('.count').html();
+        $(me).siblings('.count').html(parseInt(cur)-1);
+      };
+    });
+  });
+  
+  $('#sandwiches h5 .comments-link').toggle(function(e) {
     e.preventDefault();
     var cur = $(this).html();
     var me = this;

@@ -4,12 +4,18 @@ class SandwichesController < ApplicationController
   before_filter :get_audio_info, :only => :create
     
   def index    
-    @sandwiches = Sandwich.paginate(:page => params[:page], :include => [:user, :posts])
-    @users = User.all
+    @sandwiches = Sandwich.paginate(:page => params[:page], :include => [:user, :posts, :likes], :order => 'created_at DESC')
+    @users = User.all :order => 'points DESC'
     respond_to do |format|
       format.html
       format.rss
     end
+  end
+  
+  def greatest
+    @sandwiches = Sandwich.paginate(:page => params[:page], :include => [:user, :posts, :likes], :order => "likes_count DESC")
+    @users = User.all :order => 'points DESC'
+    render :action => "index"
   end
 
   def new
@@ -18,7 +24,6 @@ class SandwichesController < ApplicationController
 
   def create
     @sandwich = current_user.sandwiches.build(:name => params[:name])
-    
     @songs.each do |file|
       @sandwich.posts << current_user.posts.build(:mp3 => file[:filedata], :title => file[:title], :artist => file[:artist], :album => file[:album])
     end if @songs
@@ -34,6 +39,17 @@ class SandwichesController < ApplicationController
 
   def show
     @sandwich = Sandwich.find(params[:id])
+  end
+  
+  def like
+    Sandwich.find(params[:id]).likes.create :user_id => current_user.id
+    render :json => true.to_json
+  end
+  
+  def unlike
+    like = Sandwich.find(params[:id]).likes.find(:first, :conditions => ['user_id = ?', current_user.id])
+    like.destroy
+    render :json => true.to_json
   end
 
   def edit

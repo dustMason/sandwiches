@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :posts, :order => 'posts.created_at DESC', :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  has_many :likes
   has_many :sandwiches, :order => 'sandwiches.created_at DESC', :dependent => :destroy
   has_many :invitations, :order => 'invitations.created_at DESC'
 
@@ -27,6 +28,10 @@ class User < ActiveRecord::Base
 
   def to_s
     login
+  end
+  
+  def already_likes?(sandwich)
+    self.likes.find(:all, :conditions => ['sandwich_id = ?', sandwich.id]).size > 0
   end
 
 end

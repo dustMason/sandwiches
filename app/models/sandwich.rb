@@ -1,12 +1,13 @@
 class Sandwich < ActiveRecord::Base
   has_many :posts, :dependent => :destroy
   has_many :comments
+  has_many :likes
   belongs_to :user, :counter_cache => :sandwiches_count
   
   cattr_reader :per_page
   @@per_page = 9
   
-  default_scope :order => 'created_at DESC'
+  # default_scope :order => 'created_at DESC'
   
   validates_associated :posts
   validates_presence_of :name
