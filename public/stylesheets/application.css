@@ -12,9 +12,9 @@ h1, h2, h3 {
 	font-weight: normal;
 /*	text-transform: uppercase;*/
 }
-h1 { font-size: 50px; margin-bottom:10px;}
+h1 { font-size: 50px; margin-bottom:10px; }
 h1 a { color: #111; }
-h2 { font-size: 24px; border-top: 1px solid #dedede; border-bottom: 1px solid #dedede; padding:5px 0; margin-bottom:5px;}
+h2 { font-size: 24px; border-top: 1px solid #dedede; border-bottom: 1px solid #dedede; padding:5px 0; margin-bottom:5px; }
 h3 {
 	line-height: 1.1;
 	font-size: 24px;
@@ -29,7 +29,7 @@ p { margin: 1em 0; }
 #nav span {color:#dedede;}
 #users { text-align:right;}
 /*#footer {text-align:center; margin-top:50px; padding-bottom:50px;}*/
-#swfupload-control {margin:10px 0 5px 0;}
+#swfupload-control {margin:10px 0 5px 0; }
 .playable {}
 .playing {background:#eeeeec;}
 .paused {background:#eeeeec;}

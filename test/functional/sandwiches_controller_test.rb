@@ -56,6 +56,17 @@ class SandwichesControllerTest < ActionController::TestCase
     end
     assert_response :success
   end
-
+  
+  test "should not allow any non mp3 or m4a files in a sandwich" do
+    sign_in!
+    assert_no_difference 'Sandwich.count' do
+      post :create, :songs => {
+        1 => fixture_file_upload('files/audio.wma', 'audio/x-ms-wma'),
+        2 => fixture_file_upload('files/audio.wma', 'audio/x-ms-wma'),
+        3 => fixture_file_upload('files/audio.wma', 'audio/x-ms-wma')
+      }, :name => "Pastrami on Rye"
+    end
+    assert_response :success
+  end
 
 end

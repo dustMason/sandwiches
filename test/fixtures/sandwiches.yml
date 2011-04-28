@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
+  name: Tuna
   user_id: 1
   play_count: 1
 
 two:
-  name: MyString
+  name: Provolone
   user_id: 1
   play_count: 1

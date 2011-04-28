@@ -27,7 +27,6 @@ class SandwichesController < ApplicationController
     @songs.each do |file|
       @sandwich.posts << current_user.posts.build(:mp3 => file[:filedata], :title => file[:title], :artist => file[:artist], :album => file[:album])
     end if @songs
-    
     if @sandwich.valid? && @sandwich.save
       redirect_to root_path
     else

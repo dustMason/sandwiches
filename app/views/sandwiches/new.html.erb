@@ -3,8 +3,10 @@
   <h2>New Sandwich</h2>
 
   <%= form_tag sandwiches_path, :id => 'new_sandwich', :multipart => true do %>
+    <%= debug @sandwich %>
     <%= error_messages_for :sandwich %>
     <p><%= label_tag "Name" %> <%= text_field_tag :name %></p>
+    <p>.mp3, .m4a and .mp4 files only, please.</p>
     <p><%= label_tag "First" %> <%= file_field_tag "songs[1]" %></p>
     <p><%= label_tag "Second" %> <%= file_field_tag "songs[2]" %></p>
     <p><%= label_tag "Third" %> <%= file_field_tag "songs[3]" %></p>

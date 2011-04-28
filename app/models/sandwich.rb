@@ -6,12 +6,21 @@ class Sandwich < ActiveRecord::Base
   
   cattr_reader :per_page
   @@per_page = 9
-  
-  # default_scope :order => 'created_at DESC'
-  
+    
   validates_associated :posts
   validates_presence_of :name
   validate :must_have_3_posts
+  
+  after_validation :apply_post_errors_to_the_sandwich
+  
+  def apply_post_errors_to_the_sandwich
+    if not self.errors[:posts].nil?
+      self.posts.each do |p|
+        p.errors.each{ |attr,msg| self.errors.add(attr, msg)}
+      end
+      self.errors.delete(:posts)
+    end
+  end
 
   def must_have_3_posts
     errors.add(:songs, "It takes 3 songs to make a sandwich") unless posts.size == 3
