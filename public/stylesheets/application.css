@@ -15,7 +15,10 @@ h1, h2, h3 {
 h1 { font-size: 50px; margin-bottom:10px;}
 h1 a { color: #111; }
 h2 { font-size: 24px; border-top: 1px solid #dedede; border-bottom: 1px solid #dedede; padding:5px 0; margin-bottom:5px;}
-h3 { font-size: 24px; }
+h3 {
+	line-height: 1.1;
+	font-size: 24px;
+}
 h4, h5 {
   font-size: 12px;
   padding: 0 0 0 8px; margin: 0;
