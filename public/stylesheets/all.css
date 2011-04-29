@@ -406,7 +406,11 @@ body {
 	color: #111;
 }
 /*#container-main, #users { background: #fff; }*/
-a { color: #3465a4; text-decoration: none; }
+a {
+/*	color: #3465a4;*/
+	color: #07ad94;
+	text-decoration: none;
+}
 a:hover { text-decoration: underline; }
 h1, h2, h3 {
 	font-family: 'Covered By Your Grace', arial, serif;
@@ -466,7 +470,8 @@ p { margin: 1em 0; }
 			font-weight: bold;
 			color: #fff;
 			padding: 4px;
-			background: #BABABA;
+/*			background: #BABABA;*/
+			background: #21fddc;
 		}
 
 .errorExplanation {
@@ -489,7 +494,8 @@ p { margin: 1em 0; }
 	.sandwich h3 {
 	  padding:0 0 6px 8px;
 /*	  color: #ff3b1b;*/
-	color: #07ad94;
+/*	color: #07ad94;*/
+	color: #ff3b1b;
 	}
 	.sandwich h4 {
 	  padding-bottom: 5px;
