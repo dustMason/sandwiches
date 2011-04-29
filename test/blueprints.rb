@@ -43,3 +43,11 @@ Comment.blueprint do
   user { User.make }
   text { Sham.sentences }
 end
+
+Sandwich.blueprint do
+  posts {
+    [Post.make, Post.make, Post.make]
+  }
+  user { User.make }
+  name { Sham.sentence }
+end

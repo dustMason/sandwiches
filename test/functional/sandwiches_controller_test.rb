@@ -68,5 +68,13 @@ class SandwichesControllerTest < ActionController::TestCase
     end
     assert_response :success
   end
+  
+  # test "current user should not be able to like their own sandwich" do
+  #   sign_in!
+  #   @sandwich = Sandwich.make
+  #   assert_no_difference '@sandwich.likes.count' do
+  #     
+  #   end
+  # end
 
 end

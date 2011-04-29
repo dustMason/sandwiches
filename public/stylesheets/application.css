@@ -70,7 +70,7 @@ p { margin: 1em 0; }
 			color: #fff;
 			padding: 4px;
 /*			background: #BABABA;*/
-			background: #21fddc;
+			background: #0019af;
 		}
 
 .errorExplanation {
@@ -106,7 +106,7 @@ p { margin: 1em 0; }
 		-moz-border-radius: 5px;
 		border-radius: 5px;
 /*		background: #9A9DAD;*/
-		background: #9CD000;
+		background: #afe800;
 		
 		color: #fff;
 		font-weight: bold;
