@@ -48,7 +48,7 @@ ul.use-spectrum .spectrum-box .spectrum {
 
 ul.playlist {
  list-style-type:none;
- margin:0px;
+ margin:4px 0 0 0;
  padding:0px;
 
 }
@@ -63,7 +63,12 @@ ul.playlist li {
  padding:0.25em 0.5em 0.25em 0.5em;
  border:none;
 /* letter-spacing:-1px;*/
- background-color:#f9f9f9;
+/*background-color:#F6F6F6;*/
+
+border-radius:3px;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+
  -webkit-transition-property: hover;
  -webkit-transition: background-color 0.15s ease-in-out;
  -moz-transition: background-color 0.15s linear 0s; /* firefox 4 */
@@ -94,20 +99,30 @@ ul.playlist li.sm2_playing p {
 }
 
 ul.playlist li:hover {
- background-color:#eee;
+/* background-color:#eee;*/
+/*background-color:#21fddc;*/
+background-color:#fbfe41;
+
+
 }
 
 ul.playlist li:hover a {
- color:#333;
+/* color:#333;*/
+/*color:#06927d;*/
 }
 
 ul.playlist li.sm2_playing,
 ul.playlist li.sm2_playing:hover {
- background-color:#6699cc;
+/* background-color:#6699cc;*/
+ background-color:#ff3b1b;
 }
 
+ul.playlist .title { font-weight: 500; }
+ul.playlist .artist { color: #818181; font-weight: 200; }
+ul.playlist li.sm2_paused .artist { color: #fff; }
+
 ul.playlist li.sm2_paused {
- background-color:#ACACAC;
+ background-color:#07ad94;
 }
 
 ul.playlist li.sm2_playing:hover a,
@@ -155,7 +170,7 @@ ul.playlist li:hover .controls .statusbar {
 }
 
 ul.playlist li.sm2_paused .controls .statusbar {
- background-color:#ccc;
+ background-color:#fff;
 }
 
 ul.playlist li .controls {
@@ -168,7 +183,7 @@ ul.playlist li .controls {
 ul.playlist li .controls .statusbar {
  position:relative;
  height:0.5em;
- background-color:#ccddff;
+ background-color:#fbfe41;
  border:2px solid #fff;
  border-radius:2px;
  -moz-border-radius:2px;
@@ -193,20 +208,28 @@ ul.playlist li .controls .statusbar .annotation {
 }
 
 ul.playlist li .controls .statusbar .position {
- background-color:#336699;
- border-right:3px solid #336699;
+ background-color:#ff3b1b;
+ border-right:3px solid #ff3b1b;
  border-radius:3px;
  -moz-border-radius:3px;
  -webkit-border-radius:3px;
 }
 
 ul.playlist li.sm2_paused .controls .statusbar .position {
- background-color:#666;
- border-color:#666;
+ background-color:#07ad94;
+ border-color:#07ad94;
+}
+ul.playlist li.sm2_paused .controls .statusbar {
+	background-color:#fff;
+}
+ul.playlist li.sm2_paused .controls .statusbar .loading {
+	background-color:#21fddc;
 }
 
+
+
 ul.playlist li .controls .statusbar .loading {
- background-color:#eee;
+ background-color:#fbfe41;
 }
 
 ul.playlist li .controls .statusbar .position,
@@ -220,23 +243,7 @@ ul.playlist li.sm2_paused a.sm2_link {
 }
 
 ul.playlist li .timing {
-/* position:absolute;*/
  display:none;
-/* text-align:right;
- right:1em;
- top:1em;
- width:auto;
- height:1em;
- padding:3px 5px;
- background-color:#5588bb;
- border:1px solid #99ccff;
- -moz-border-radius:4px;
- -khtml-border-radius:4px;
- border-radius:4px;
- letter-spacing:0px;
- font:44% monaco,"VT-100",terminal,"lucida console",courier,system;
- line-height:1em;
- vertical-align:middle;*/
 }
 
 /*ul.playlist.use-peak li .timing {
@@ -258,21 +265,21 @@ ul.playlist li.sm2_paused .timing {
  display:block;
 }*/
 
-ul.playlist li.sm2_paused .timing .sm2_position {
- text-decoration:blink; /* hee hee. first actual appropriate use? :D */
+/*ul.playlist li.sm2_paused .timing .sm2_position {
+ text-decoration:blink;
 }
 
 ul.playlist li.sm2_paused .timing,
 ul.playlist.use-peak li.sm2_paused .peak {
  background-color:#888;
  border-color:#ccc;
-}
+}*/
 
 /* peak data */
 
 /* ul.playlist ... */
 
-ul.playlist.use-peak li .peak {
+/*ul.playlist.use-peak li .peak {
  display:none;
  zoom:1;
  border:1px solid #99ccff;
@@ -318,4 +325,4 @@ ul.playlist li .peak .r {
 
 #control-template {
  display:none;
-}
+}*/

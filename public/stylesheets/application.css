@@ -16,7 +16,7 @@ h1 { font-size: 50px; margin-bottom:10px; }
 h1 a { color: #111; }
 h2 { font-size: 24px; border-top: 1px solid #dedede; border-bottom: 1px solid #dedede; padding:5px 0; margin-bottom:5px; }
 h3 {
-	line-height: 1.1;
+	line-height: .9;
 	font-size: 24px;
 }
 h4, h5 {
@@ -86,8 +86,9 @@ p { margin: 1em 0; }
 }
 	.sandwich ul {}
 	.sandwich h3 {
-	  padding-left: 8px;
-	  color: #666;
+	  padding:0 0 6px 8px;
+/*	  color: #ff3b1b;*/
+	color: #07ad94;
 	}
 	.sandwich h4 {
 	  padding-bottom: 5px;
@@ -98,7 +99,9 @@ p { margin: 1em 0; }
 		-webkit-border-radius: 5px;
 		-moz-border-radius: 5px;
 		border-radius: 5px;
-		background: #9A9DAD;
+/*		background: #9A9DAD;*/
+		background: #9CD000;
+		
 		color: #fff;
 		font-weight: bold;
 	}
@@ -109,8 +112,7 @@ p { margin: 1em 0; }
 		font-size: 14px;
 	}
 	.sandwich li p { padding: 0; margin: 0; }
-	.sandwich .title { font-weight: 500; }
-	.sandwich .artist { color: #818181; font-weight: 200; }
+
 	.sandwich li a {}
 	.sandwich .comments {
 		display: none;
