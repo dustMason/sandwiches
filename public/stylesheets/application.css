@@ -7,7 +7,7 @@ body {
 /*#container-main, #users { background: #fff; }*/
 a {
 /*	color: #3465a4;*/
-	color: #07ad94;
+	color: #3bbbf0;
 	text-decoration: none;
 }
 a:hover { text-decoration: underline; }
@@ -109,7 +109,7 @@ p { margin: 1em 0; }
 		-moz-border-radius: 5px;
 		border-radius: 5px;
 /*		background: #9A9DAD;*/
-		background: #afe800;
+		background: #3bbbf0;
 		
 		color: #fff;
 		font-weight: bold;
