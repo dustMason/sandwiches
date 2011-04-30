@@ -52,7 +52,7 @@ ul.playlist li.sm2_playing,
 ul.playlist li.sm2_paused,
 ul.playlist li.sm2_playing a,
 ul.playlist li.sm2_playing p {
- color:#000;
+ color:#fff;
  border-radius:3px;
  -webkit-border-radius:3px;
  -moz-border-radius:3px;
@@ -74,12 +74,12 @@ ul.playlist li:hover a {
 ul.playlist li.sm2_playing,
 ul.playlist li.sm2_playing:hover {
 /* background-color:#6699cc;*/
- background-color:#93dbf9;
+ background-color:#45c7fe;
 }
 
 ul.playlist .title { font-weight: 500; }
-ul.playlist .artist { color: #6C6C6C !important; font-weight: 200; }
-ul.playlist li.sm2_paused .artist { color: #6C6C6C; }
+ul.playlist .artist { color: #6C6C6C; font-weight: 200; }
+ul.playlist li.sm2_paused .artist { color: #fff; }
 
 ul.playlist li.sm2_paused {
 /* background-color:#07ad94;*/
@@ -88,8 +88,8 @@ ul.playlist li.sm2_paused {
 
 ul.playlist li.sm2_playing:hover a,
 ul.playlist li.sm2_paused a {
-/* color:#fff;*/
- color:#000;
+ color:#fff;
+/* color:#000;*/
 }
 
 ul.playlist li .controls {
