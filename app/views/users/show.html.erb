@@ -9,8 +9,8 @@
   <% if @user.sandwiches.present? %>
     <%= render :partial => 'sandwiches/sandwiches', :locals => {:sandwiches => @user.sandwiches} %>
   <% else %>
-    <h3><%= @user.login %> hasn't made any sandwiches.</h3>
-    <h3>Here is a walrus with a sandwich.</h3>
+    <h3><%= @user.login %> ain't got no sandwiches.</h3>
+    <p></p>
     <%= image_tag "walrus.jpg" %>
   <% end %>
   
