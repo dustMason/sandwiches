@@ -19,7 +19,46 @@ class SandwichesController < ApplicationController
   end
 
   def new
+    
+    bucket            = CONFIG['s3_bucket_name']
+    access_key_id     = CONFIG['s3_access_id']
+    secret_access_key = CONFIG['s3_secret_key']
+
+    key             = ENV['RAILS_ENV']
+    acl             = 'public-read'
+    expiration_date = 10.hours.from_now.utc.strftime('%Y-%m-%dT%H:%M:%S.000Z')
+    max_filesize    = 2.gigabyte
+
+    policy = Base64.encode64(
+      "{'expiration': '#{expiration_date}',
+        'conditions': [
+          {'bucket': '#{bucket}'},
+          ['starts-with', '$key', '#{key}'],
+          {'acl': '#{acl}'},
+          {'success_action_status': '201'},
+          ['starts-with', '$Filename', ''],
+          ['content-length-range', 0, #{max_filesize}]
+        ]
+      }").gsub(/\n|\r/, '')
+
+    signature = Base64.encode64(
+                  OpenSSL::HMAC.digest(
+                    OpenSSL::Digest::Digest.new('sha1'),
+                    secret_access_key, policy)).gsub("\n","")
+
+    @post = {
+      "key" => "#{key}/${filename}",
+      "AWSAccessKeyId" => "#{access_key_id}",
+      "acl" => "#{acl}",
+      "policy" => "#{policy}",
+      "signature" => "#{signature}",
+      "success_action_status" => "201"
+    }
+
+    @upload_url = "http://#{bucket}.s3.amazonaws.com/"
+    
     @sandwich = Sandwich.new
+    
   end
 
   def create
