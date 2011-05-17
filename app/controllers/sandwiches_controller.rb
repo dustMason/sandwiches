@@ -71,8 +71,12 @@ class SandwichesController < ApplicationController
     @songs = []
     params[:songs].each do |file|
       # filedata = file[1]
-      filedata = open(file[1]['file']) # download the song      
-      path = URI::split(file[1]['file'])
+      # escape the filenames first. a little ugly, i know.
+      path = file[1]['file'].split("/")
+      path[-1] = CGI::escape(path.last)
+      path = path.join("/")
+      filedata = open(path) # download the song      
+      path = URI::split(path)
       file = { :filedata  => filedata }
       # file[:filename] ||= filedata.original_filename if file
       file[:filename] = path[5].split("/").last
