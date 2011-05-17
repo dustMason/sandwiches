@@ -139,6 +139,35 @@ p { margin: 1em 0; }
 			height: 50px;
 		}
 		
+#new_sandwich #name {
+	font-size: 20px;
+	width: 50%;
+	padding: 10px;
+}
+
+.upload_song {
+	border-bottom: 1px solid #BCBCBC;
+	padding: 10px 0;
+}
+#first_song { border-top: 1px solid #BCBCBC; }
+	.upload_song object {
+		float: right;
+/*		clear: both;*/
+		height: 50px;
+		width: 150px;
+	}
+	.upload_song .file {
+		margin-top: 5px;
+	}
+	.upload_save {
+		padding: 10px 0;
+		display: none;
+	}
+	.upload_save input {
+		float: right;
+	}
+
+		
 #footer {
 	color: #999;
 	font-size: 12px;

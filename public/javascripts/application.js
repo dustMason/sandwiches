@@ -6,6 +6,14 @@ function human_size(bytes) {
   return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
 }
 
+Object.size = function(obj) {
+  var size = 0, key;
+  for (key in obj) {
+    if (obj.hasOwnProperty(key)) size++;
+  }
+  return size;
+};
+
 // soundmanager
 
 // demo only, but you can use these settings too..

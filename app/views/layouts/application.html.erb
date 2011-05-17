@@ -4,7 +4,7 @@
   <title>Sandwiches</title>
   <link href='http://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'jquery', 'rails', 'jquery.form', 'jquery.hint', 'jquery.shuffle', 'soundmanager2-nodebug-jsmin', 'swfobject', 'jquery.uploadify.v2.1.4.min', 'page-player', 'application', :cache => true %>
-  <%= stylesheet_link_tag 'reset', '960', 'forms', 'page-player', 'application', :cache => true %>
+  <%= stylesheet_link_tag 'reset', '960', 'forms', 'page-player', 'application', 'uploadify', :cache => true %>
   <%= auto_discovery_link_tag :rss, rss_url, { :title => 'RSS' } if user_signed_in? %>
   <%= csrf_meta_tag %>
 </head>

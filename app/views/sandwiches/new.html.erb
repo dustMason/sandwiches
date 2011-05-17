@@ -1,36 +1,95 @@
-
 <div class="grid_12">
 
   <h2>New Sandwich</h2>
-
-  <%= uploadify_s3({
-    :file_input_selector => '#file_uploader',
-    :button_text => 'Add Video',
-    :file_ext => '*.*',
-    :on_success => "
-      function(f) {
-        console.log(f);
-      }",
-    :on_error => "
-      function(type, text) {
-        console.log('Error');
-        console.log(type);
-        console.log(text);
-      }"
-    })
-  %>
-    
-  <input type="file" name="uploadify" id="file_uploader" />
   
-  <!-- <%= form_tag sandwiches_path, :id => 'new_sandwich', :multipart => true do %>
+  <%= form_tag sandwiches_path, :id => 'new_sandwich', :multipart => true do %>
     <%= error_messages_for :sandwich %>
-    <p><%= label_tag "Name" %> <%= text_field_tag :name %></p>
-    <p>.mp3, .m4a and .mp4 files only, please.</p>
-    <p><%= label_tag "First" %> <%= file_field_tag "songs[1]" %></p>
-    <p><%= label_tag "Second" %> <%= file_field_tag "songs[2]" %></p>
-    <p><%= label_tag "Third" %> <%= file_field_tag "songs[3]" %></p>
-    <p><%= submit_tag "Upload", :id => "new_sandwich_submit" %> (Be patient!)</p>
-    <div id="new_sandwich_status"></div>
-  <% end %> -->
+    <p><%= label_tag "Name" %><br/><%= text_field_tag :name %></p>
+    
+    <%= uploadify_s3({
+      :file_input_selector => '#songs_1',
+      :button_text => 'Add Song',
+      # :file_ext => '*.mp3;*.mp4;*.m4a',
+      :on_success => "createSongUploadHandler('#first_song')",
+      :on_error => "handleError",
+      :on_select => "createSongSelectHandler('#first_song')",
+      :width => 150,
+      :height => 50 })
+    %>
+    <%= uploadify_s3({
+      :file_input_selector => '#songs_2',
+      :button_text => 'Add Song',
+      # :file_ext => '*.mp3;*.mp4;*.m4a',
+      :on_success => "createSongUploadHandler('#second_song')",
+      :on_error => "handleError",
+      :on_select => "createSongSelectHandler('#second_song')",
+      :width => 150,
+      :height => 50 })
+    %>
+    <%= uploadify_s3({
+      :file_input_selector => '#songs_3',
+      :button_text => 'Add Song',
+      # :file_ext => '*.mp3;*.mp4;*.m4a',
+      :on_success => "createSongUploadHandler('#third_song')",
+      :on_error => "handleError",
+      :on_select => "createSongSelectHandler('#third_song')",
+      :width => 150,
+      :height => 50 })
+    %>
+    
+    <div id="first_song" class="upload_song">
+      <%= label_tag "First" %> <%= file_field_tag "songs[1]" %>
+      <%= hidden_field_tag "songs[1][file]", "", :class => "file_url" %>
+      <div class="file"></div>
+      <div class="clear"></div>
+    </div>
+    
+    <div id="second_song" class="upload_song">
+      <%= label_tag "Second" %> <%= file_field_tag "songs[2]" %>
+      <%= hidden_field_tag "songs[2][file]", "", :class => "file_url" %>
+      <div class="file"></div>
+      <div class="clear"></div>
+    </div>
+    
+    <div id="third_song" class="upload_song">
+      <%= label_tag "Third" %> <%= file_field_tag "songs[3]" %>
+      <%= hidden_field_tag "songs[3][file]", "", :class => "file_url" %>
+      <div class="file"></div>
+      <div class="clear"></div>
+    </div>
+    
+    <div class="upload_save">
+      <%= image_submit_tag "uploadify/save.png", :id => "new_sandwich_submit" %>
+      <div class="clear"></div>
+    </div>
+  <% end %>
+  
+  <script type="text/javascript">
+
+    var songs = {};
+
+    // so meta!
+    function createSongUploadHandler(id) {
+      return function(f) {
+        var neu = $('<div class="done"><img src="/images/uploadify/done.png" /></div><span class="fileName">'+f.name+'</span>');
+        $(id).find('.file').html(neu.hide().slideDown('fast'));
+        console.log($(id).find('.file_url'));
+        $(id).find('.file_url').val(f.url);
+        songs[id] = f;
+        if (Object.size(songs) == 3) {
+          $('.upload_save').slideDown('fast');
+        }
+      }
+    }
+    function createSongSelectHandler(id) {
+      return function(event,queueID,fileObj) {
+        $(id).find('.file').html('');
+      }
+    }
+    function handleError(type,text) {
+      alert(type+ ": there was an error. Sandwiches is sorry.");
+    }
+
+  </script>
 
 </div>
