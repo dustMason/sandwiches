@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 
   attr_accessible :mp3, :title, :artist, :album
 
-  mount_uploader :mp3, Mp3Uploader
+  # mount_uploader :mp3, Mp3Uploader
 
   belongs_to :user
   belongs_to :sandwich
@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
   validate :must_be_a_good_format
   
   def must_be_a_good_format
-    errors.add(:base,"Sorry kids, we can only use mp3, m4a or mp4 files.") unless mp3.filename =~ /.mp4$|.m4a$|.mp3$/
+    errors.add(:base,"Sorry kids, we can only use mp3, m4a or mp4 files.") unless mp3 =~ /.mp4$|.m4a$|.mp3$/
   end
 
   def to_s
