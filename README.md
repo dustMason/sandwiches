@@ -3,8 +3,9 @@ Sandwiches
 
 **A Sandwich is a stack of 3 songs, to be enjoyed in a certain order.** This is a rails app to help create and share them with your friends. Its based on KZAK (see below). Some technical changes from KZAK include:
 
-*   fragment caching (stored with memcached via the dalli gem)
-*   pagination with will_paginate
+*   fragment caching (stored with memcached via the dalli gem).
+*   pagination with will_paginate.
+*   no longer uses carrierwave to handle uploads. instead uses a patched version of the s3-uploadify plugin to pipe song files directly to the S3 bucket, bypassing the server until after the files are stored.
 
 ---
 Readme inherited from KZAK below:
