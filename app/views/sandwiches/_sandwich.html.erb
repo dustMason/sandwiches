@@ -16,7 +16,7 @@
   <ul class="playlist">
     <% sandwich.posts.each do |post| %>
       <li>
-        <a id="<%= "post-#{post.id}" %>" class="post" href="<%= post.mp3.url %>">
+        <a id="<%= "post-#{post.id}" %>" class="post" href="<%= post.mp3_url %>">
           <p class="title"><%= post.title %></p>
           <p class="artist"><%= post.artist %></p>
         </a>
