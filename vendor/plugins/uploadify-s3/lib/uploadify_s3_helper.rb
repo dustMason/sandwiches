@@ -32,13 +32,10 @@ module UploadifyS3Helper
           'fileDesc'       : '#{options[:file_desc]}',        
           'fileExt'        : '#{options[:file_ext]}',
           'onSelect'       : function(event, queueID, fileObj) {
-            var onsel = (#{options[:on_select]});
             if (fileObj.size >= "#{max_filesize}") {
               $("#{options[:file_input_selector]}").uploadifyCancel(queueID);
               alert('Sorry the max file size is #{((max_filesize/1024)/1024)} MB');
               return false;
-            } else if (onsel) {
-              onsel(event, queueID, fileObj);
             }
             $('div.button_group').hide();
             return true;

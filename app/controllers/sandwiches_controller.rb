@@ -24,11 +24,11 @@ class SandwichesController < ApplicationController
 
   def create
     
-    puts @songs.inspect
+    # puts @songs.inspect
     
     @sandwich = current_user.sandwiches.build(:name => params[:name])
     @songs.each do |file|
-      @sandwich.posts << current_user.posts.build(:mp3 => file[:filedata], :title => file[:title], :artist => file[:artist], :album => file[:album])
+      @sandwich.posts << current_user.posts.build(:mp3 => file[:filename], :title => file[:title], :artist => file[:artist], :album => file[:album])
     end if @songs
     if @sandwich.valid? && @sandwich.save
       redirect_to root_path

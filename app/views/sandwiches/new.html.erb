@@ -12,7 +12,6 @@
       # :file_ext => '*.mp3;*.mp4;*.m4a',
       :on_success => "createSongUploadHandler('#first_song')",
       :on_error => "handleError",
-      :on_select => "createSongSelectHandler('#first_song')",
       :width => 150,
       :height => 50 })
     %>
@@ -22,7 +21,6 @@
       # :file_ext => '*.mp3;*.mp4;*.m4a',
       :on_success => "createSongUploadHandler('#second_song')",
       :on_error => "handleError",
-      :on_select => "createSongSelectHandler('#second_song')",
       :width => 150,
       :height => 50 })
     %>
@@ -32,7 +30,6 @@
       # :file_ext => '*.mp3;*.mp4;*.m4a',
       :on_success => "createSongUploadHandler('#third_song')",
       :on_error => "handleError",
-      :on_select => "createSongSelectHandler('#third_song')",
       :width => 150,
       :height => 50 })
     %>
@@ -73,7 +70,7 @@
       return function(f) {
         var neu = $('<div class="done"><img src="/images/uploadify/done.png" /></div><span class="fileName">'+f.name+'</span>');
         $(id).find('.file').html(neu.hide().slideDown('fast'));
-        console.log($(id).find('.file_url'));
+        // console.log($(id).find('.file_url'));
         $(id).find('.file_url').val(f.url);
         songs[id] = f;
         if (Object.size(songs) == 3) {

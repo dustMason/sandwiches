@@ -10,13 +10,13 @@ gem 'toadhopper'
 gem 'yajl-ruby'
 gem 'heroku_backup_task'
 gem 'flash_cookie_session'
-gem 'dalli' #memcached!
+gem 'dalli' # for memcached
 
 # gem 'carrierwave', :path => '~/code/carrierwave'
 # gem 'carrierwave', :git => 'git://github.com/jnicklas/carrierwave.git', :ref => 'xxx'
-gem 'carrierwave', '0.5.3'
+# gem 'carrierwave', '0.5.3'
 
-gem 'fog', '0.7.1'
+# gem 'fog', '0.7.1'
 
 gem "will_paginate", "~> 3.0.pre2"
 
