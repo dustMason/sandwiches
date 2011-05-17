@@ -1,5 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 require 'rails/all'
+require 'open-uri'
 
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
