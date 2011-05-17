@@ -35,8 +35,6 @@ GEM
       ZenTest
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
-    carrierwave (0.5.3)
-      activesupport (~> 3.0)
     columnize (0.3.2)
     configuration (1.2.0)
     daemons (1.1.0)
@@ -47,21 +45,10 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     eventmachine (0.12.10)
-    excon (0.5.7)
     faker (0.9.4)
       i18n (~> 0.4)
     flash_cookie_session (1.1.0)
       rails (~> 3.0)
-    fog (0.7.1)
-      builder
-      excon (>= 0.5.7)
-      formatador (>= 0.1.2)
-      json
-      mime-types
-      net-ssh (>= 2.0.23)
-      nokogiri (>= 1.4.4)
-      ruby-hmac
-    formatador (0.1.2)
     heroku (1.20.1)
       launchy (~> 0.3.2)
       rest-client (>= 1.4.0, < 1.7.0)
@@ -72,7 +59,6 @@ GEM
       activesupport
       builder
     i18n (0.5.0)
-    json (1.5.1)
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
@@ -89,8 +75,6 @@ GEM
     mocha (0.9.10)
       rake
     mp4info (1.7.3)
-    net-ssh (2.1.3)
-    nokogiri (1.4.4)
     pg (0.10.1)
     polyglot (0.3.1)
     populator (1.0.0)
@@ -128,7 +112,6 @@ GEM
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
       ruby-debug-base19 (>= 0.11.19)
-    ruby-hmac (0.4.0)
     ruby-mp3info (0.6.13)
     ruby_core_source (0.1.4)
       archive-tar-minitar (>= 0.5.2)
@@ -154,12 +137,10 @@ PLATFORMS
 
 DEPENDENCIES
   autotest-rails
-  carrierwave (= 0.5.3)
   dalli
   devise
   faker
   flash_cookie_session
-  fog (= 0.7.1)
   heroku_backup_task
   hoptoad_notifier
   machinist
