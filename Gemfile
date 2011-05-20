@@ -12,9 +12,9 @@ gem 'heroku_backup_task'
 gem 'flash_cookie_session'
 gem 'dalli' # for memcached
 
-gem 'activeadmin', :git => "git://github.com/dustMason/active_admin.git"
-gem 'haml'
-gem 'sass'
+# gem 'activeadmin', :git => "git://github.com/dustMason/active_admin.git"
+# gem 'haml'
+# gem 'sass'
 
 gem "will_paginate", "~> 3.0.pre2"
 
