@@ -12,7 +12,7 @@ gem 'heroku_backup_task'
 gem 'flash_cookie_session'
 gem 'dalli' # for memcached
 
-gem 'activeadmin', :path => "lib/active_admin"
+gem 'activeadmin', :git => "git://github.com/dustMason/active_admin.git"
 gem 'haml'
 gem 'sass'
 

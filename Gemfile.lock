@@ -1,5 +1,6 @@
-PATH
-  remote: lib/active_admin
+GIT
+  remote: git://github.com/dustMason/active_admin.git
+  revision: 5de944c4ece0df241069e36c21344290ac15814a
   specs:
     activeadmin (0.2.1)
       devise (>= 1.1.2)
