@@ -15,6 +15,7 @@ Sandwiches::Application.routes.draw do
   resources :users, :only => [:new, :create]
   devise_for :users
   match 'greatest' => 'sandwiches#greatest'
+  match 'prefs' => 'users#wants_email'
   # NOTE last route to avoid namespace issues
   match ':id' => 'users#show', :as => :user
 end

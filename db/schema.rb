@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110520054255) do
+ActiveRecord::Schema.define(:version => 20110521020832) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(:version => 20110520054255) do
 
   create_table "users", :force => true do |t|
     t.string   "login"
-    t.integer  "followings_count",                   :default => 0, :null => false
-    t.integer  "followers_count",                    :default => 0, :null => false
+    t.integer  "followings_count",                   :default => 0,    :null => false
+    t.integer  "followers_count",                    :default => 0,    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "encrypted_password"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(:version => 20110520054255) do
     t.boolean  "admin"
     t.integer  "sandwiches_count"
     t.integer  "points",                             :default => 0
+    t.boolean  "wants_email",                        :default => true
   end
 
 end

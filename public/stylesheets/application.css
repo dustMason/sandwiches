@@ -29,8 +29,16 @@ h4, h5 {
   color: #B4B4B4;
 }
 p { margin: 1em 0; }
-#nav {float:right;}
+#nav {
+	float:right;
+	text-align: right;
+}
 #nav span {color:#dedede;}
+	#prefs {
+		font-size: 12px;
+		padding: 10px 10px 0 0;
+		color: #999;
+	}
 #users { text-align:right;}
 /*#footer {text-align:center; margin-top:50px; padding-bottom:50px;}*/
 #swfupload-control {margin:10px 0 5px 0; }
@@ -56,6 +64,8 @@ p { margin: 1em 0; }
 }
 
 #sm2-container { width: 10px; height: 10px; }
+
+
 
 .users {}
 	.users li {

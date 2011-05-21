@@ -44,13 +44,16 @@ class SandwichesController < ApplicationController
   end
   
   def like
-    Sandwich.find(params[:id]).likes.create :user_id => current_user.id
-    render :json => true.to_json
+    sando = Sandwich.find(params[:id])
+    like = sando.likes.new :user_id => current_user.id
+    res = like.save
+    Mailer.liked(sando.user,sando).deliver if res && sando.user.wants_email
+    render :json => res.to_json
   end
   
   def unlike
     like = Sandwich.find(params[:id]).likes.find(:first, :conditions => ['user_id = ?', current_user.id])
-    like.destroy
+    like.destroy if like
     render :json => true.to_json
   end
 

@@ -1,5 +1,13 @@
 <div id="nav">
+  
   <% if user_signed_in? %>
-     <%=raw "signed in as #{link_to current_user, current_user}" %> &nbsp; <span>(<%= link_to "sign out", destroy_user_session_path %>)</span>
+    <div>
+      <%=raw "signed in as #{link_to current_user, current_user}" %> &nbsp; <span>(<%= link_to "sign out", destroy_user_session_path %>)</span>
+    </div>
+    <div id="prefs">
+      <%= form_tag prefs_path do -%>
+        send me email about likes and comments <%= check_box_tag :wants_email, 1, current_user.wants_email %>
+      <%- end %>
+    </div>
   <% end %>
 </div>

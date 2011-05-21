@@ -28,6 +28,11 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  def wants_email
+    current_user.wants_email = params[:wants_email]
+    render :json => current_user.save.to_json
+  end
 
   protected
 

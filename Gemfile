@@ -12,6 +12,8 @@ gem 'heroku_backup_task'
 gem 'flash_cookie_session'
 gem 'dalli' # for memcached
 
+# gem 'postmark-rails' # might eventually use postmark for emails...
+
 # gem 'activeadmin', :git => "git://github.com/dustMason/active_admin.git"
 # gem 'haml'
 # gem 'sass'
@@ -27,6 +29,7 @@ group :development do
   gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'ruby-debug19', :platforms => [:ruby_19]
   gem 'ruby-debug', :platforms => [:ruby_18, :jruby]
+  gem 'hirb'
 end
 
 group :test do
