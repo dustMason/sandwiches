@@ -1386,6 +1386,15 @@ var PP_CONFIG = {
 }
 
 $(document).ready(function(){
+	
+	// user prefs
+	$('#prefs').find('input').change(function() {
+		$(this).closest('form').submit();
+	});
+	$('#prefs').find('form').submit(function(e) {
+		e.preventDefault();
+		$.post($(this).attr('action'), {wants_email: ($(this).find('input').is(':checked'))});
+	});
   
   // new invitation form
 
@@ -1458,61 +1467,6 @@ $(document).ready(function(){
     });
     ;
   });
-    
 
-
-
-  // var sm = soundManager;
-  // 
-  // sm.url = '/flash';
-  // sm.debugMode = false;
-  // sm.useConsole = false;
-  // sm.useHighPerformance = true;
-  // soundManager.flashVersion = 9;
-  // sm.useMovieStar = true; // MP4/M4A/AAC
-  // 
-  // sm.onready(function(){
-  //   $('a.post').each(function(){
-  //     $(this).makePlayable();
-  //   });
-  // });
-  // 
-  // $.fn.makePlayable = function(){
-  //   $(this).addClass('playable');
-  // 
-  //   soundManager.createSound({
-  //    id:$(this).attr('id'),
-  //    url:$(this).attr('href'),
-  //    onfinish:function(){
-  //      $('#'+this.sID).parent().next().find('a.playable').play();
-  //    }
-  //   });
-  // 
-  //   $(this).click(function(e){
-  //     e.preventDefault();
-  //     $(this).play();
-  //   });
-  // };
-  // 
-  // $.fn.play = function(){
-  //   if ($(this).hasClass('playing')){
-  //     $(this).removeClass('playing');
-  //     $(this).addClass('paused');
-  //     sm.pause($(this).attr('id'));
-  //     return;
-  //   } if ($(this).hasClass('paused')){
-  //     $(this).removeClass('paused');
-  //     $(this).addClass('playing');
-  //     sm.resume($(this).attr('id'));
-  //     return;
-  //   } else {
-  //     sm.stopAll();
-  //     $('.playing').removeClass('playing');
-  //     $('.paused').removeClass('paused');
-  //     $(this).addClass('playing');
-  //     sm.play($(this).attr('id'));
-  //     return;
-  //   }
-  // };
 
 });
