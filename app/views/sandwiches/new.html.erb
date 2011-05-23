@@ -9,7 +9,7 @@
     <%= uploadify_s3({
       :file_input_selector => '#songs_1',
       :button_text => 'Add Song',
-      # :file_ext => '*.mp3;*.mp4;*.m4a',
+      :file_ext => '*.mp3;*.mp4;*.m4a',
       :on_success => "createSongUploadHandler('#first_song')",
       :on_error => "handleError",
       :width => 150,
@@ -18,7 +18,7 @@
     <%= uploadify_s3({
       :file_input_selector => '#songs_2',
       :button_text => 'Add Song',
-      # :file_ext => '*.mp3;*.mp4;*.m4a',
+      :file_ext => '*.mp3;*.mp4;*.m4a',
       :on_success => "createSongUploadHandler('#second_song')",
       :on_error => "handleError",
       :width => 150,
@@ -27,7 +27,7 @@
     <%= uploadify_s3({
       :file_input_selector => '#songs_3',
       :button_text => 'Add Song',
-      # :file_ext => '*.mp3;*.mp4;*.m4a',
+      :file_ext => '*.mp3;*.mp4;*.m4a',
       :on_success => "createSongUploadHandler('#third_song')",
       :on_error => "handleError",
       :width => 150,
