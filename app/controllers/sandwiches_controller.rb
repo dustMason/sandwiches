@@ -34,7 +34,7 @@ class SandwichesController < ApplicationController
       redirect_to root_path
     else
       render :action => "new"
-    end    
+    end
   rescue => e
     Toadhopper(CONFIG['HOPTOAD_API_KEY']).post!(e) if CONFIG['HOPTOAD_API_KEY']
   end
@@ -47,7 +47,7 @@ class SandwichesController < ApplicationController
     sando = Sandwich.find(params[:id])
     like = sando.likes.new :user_id => current_user.id
     res = like.save
-    Mailer.liked(sando.user,sando).deliver if res && sando.user.wants_email
+    Mailer.liked(current_user,sando).deliver if res && sando.user.wants_email
     render :json => res.to_json
   end
   

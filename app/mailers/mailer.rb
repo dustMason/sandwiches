@@ -7,16 +7,16 @@ class Mailer < ActionMailer::Base
   end
   
   def liked(user,sandwich)
-    @user = user
     @sandwich = sandwich
-    mail(:to => user.email, :subject => "Sandwiches: #{@user.login} likes your sandwich")
+    @user = user
+    mail(:to => @sandwich.user.email, :subject => "Sandwiches: #{@user.login} likes your sandwich")
   end
   
   def commented(user,comment)
     @user = user
     @comment = comment
     @sandwich = comment.sandwich
-    mail(:to => user.email, :subject => "Sandwiches: #{@user.login} commented on your sandwich")
+    mail(:to => @sandwich.user.email, :subject => "Sandwiches: #{@user.login} commented on your sandwich")
   end
 
 end

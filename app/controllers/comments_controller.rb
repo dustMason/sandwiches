@@ -12,12 +12,10 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(params[:comment])
     if @comment.save
-      Mailer.commented(@comment.sandwich.user,@comment).deliver if @comment.sandwich.user.wants_email
+      Mailer.commented(current_user,@comment).deliver if @comment.sandwich.user.wants_email
       render :partial => 'comment', :locals => {:comment => @comment}
     else
       render :partial => 'error'
-      # render :action => "new"
-      # i dunno
     end
   end
 
