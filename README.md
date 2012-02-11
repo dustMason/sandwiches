@@ -7,58 +7,11 @@ Sandwiches
 *   pagination with will_paginate.
 *   no longer uses carrierwave to handle uploads. instead uses a patched version of the s3-uploadify plugin to pipe song files directly to the S3 bucket, bypassing the server until after the files are stored.
 
----
-Readme inherited from KZAK below:
-
-About
+KZAK
 ============
 
-KZAK is a web-based jukebox.
+Sandwiches is based on KZAK, a web-based jukebox by trevorturk.
 http://github.com/trevorturk/kzak/
-
-
-Installation
-=================
-
-    git clone git://github.com/trevorturk/kzak.git
-    gem install bundler
-    bundle install
-    cp config/database.example.yml config/database.yml
-    cp config/config.example.yml config/config.yml
-    rake db:create
-    rake db:schema:load
-    rake db:seed
-    script/server
-    # http://localhost:3000/
-
-
-Deployment
-====================
-
-    gem install heroku
-    heroku create
-    # Set the variables for your production environment in config/config.yml
-    # Create the bucked you'd like to use on S3
-    rake heroku:config
-    git push heroku master
-    heroku rake db:schema:load
-    heroku rake db:seed
-    heroku open
-    # Read more about Heroku here: http://heroku.com/
-
-
-Upgrading
-===================
-
-    heroku db:pull sqlite://db/backup.sqlite3
-    git pull
-    bundle install
-    # Review possible config changes in config/config.example.yml
-    rake heroku:config
-    git push heroku master
-    heroku rake db:migrate
-    heroku open
-
 
 MIT License
 ========================
